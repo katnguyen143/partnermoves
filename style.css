@@ -1,91 +1,166 @@
+/* Base styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: #fdfdfd;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #fdfdfd;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Righteous', cursive;
+    margin-bottom: 0.5rem;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  color: #2c3e50;
+.logo {
+    position: relative;
 }
 
 nav a {
-  margin-left: 1rem;
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: 500;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 .hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to bottom, #e0f7fa, #fff);
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #e0f7fa, #fff);
 }
 
-.hero h2 {
-  font-size: 2rem;
-  color: #0077b6;
+.brand-summary, .brand-values {
+    padding: 2rem;
+    text-align: center;
+    background: #fffdf9;
 }
+
+    .brand-summary h3, .brand-values h3 {
+        font-family: 'Righteous', cursive;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #ff6f61;
+    }
+
+    .brand-summary p {
+        max-width: 700px;
+        margin: 0 auto 1rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .brand-values .value-grid {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .brand-values .value-card {
+        background: #fff8f5;
+        border-radius: 12px;
+        padding: 1rem;
+        width: 220px;
+        font-size: 1rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
 
 .cta {
-  display: inline-block;
-  margin: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #ff6f61;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #ff6f61;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.cta.secondary {
-  background: #0077b6;
+    .cta.secondary {
+        background: #0077b6;
+    }
+
+.values {
+    padding: 2rem;
+    text-align: center;
 }
 
-.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  background: #f9f9f9;
+.value-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.feature {
-  max-width: 200px;
-  text-align: center;
+.value-card {
+    background: #fff8f5;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 200px;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.tutorial-preview {
-  padding: 2rem;
-  text-align: center;
+.retreats {
+    padding: 3rem 2rem;
+    background: #fefefe;
+    text-align: center;
 }
 
-.tutorial-grid {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+.retreat-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.tutorial-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 250px;
+.retreat-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 300px;
+    position: relative;
+}
+
+    .retreat-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+/* Comic-style bubble */
+.comic-bubble {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: #0077b6;
+    color: #fff;
+    padding: 1.4rem 1.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: 'Bangers', cursive;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    transform: rotate(-10deg) translateY(-5px);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    line-height: 1;
+    clip-path: polygon( 50% 0%, 65% 15%, 85% 15%, 75% 35%, 85% 55%, 65% 55%, 50% 70%, 35% 55%, 15% 55%, 25% 35%, 15% 15%, 35% 15 );
 }
 
 footer {
-  padding: 2rem;
-  background: #eee;
-  text-align: center;
+    padding: 2rem;
+    background: #eee;
+    text-align: center;
 }
