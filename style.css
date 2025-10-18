@@ -129,6 +129,75 @@ main {
         background: #0077b6;
     }
 
+.testimonial-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: #fffdf9;
+    position: relative;
+    gap: 2rem;
+}
+
+.testimonial-content blockquote {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #FF6F61;
+    margin: 0 auto 0.5rem;
+    max-width: 400px;
+    line-height: 1.4;
+}
+
+.testimonial-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.testimonial-photo {
+    position: relative;
+}
+
+    .testimonial-photo img {
+        width: 90%;
+        max-width: 340px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin: 0 auto;
+    }
+
+
+.bubble {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: #FF914D;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.testimonial-content blockquote {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #FF6F61;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-content .attribution {
+    font-size: 1rem;
+    color: #41915B;
+}
+
+
+
 .brand-summary, .brand-values {
     padding: 4rem 2rem;
     position: relative;
