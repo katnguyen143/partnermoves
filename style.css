@@ -431,6 +431,43 @@ main {
             background-color: #e85c50;
         }
 
+.site-footer {
+    background: #ffffff; /* pure white */
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: #41915B;
+}
+
+.footer-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-nav {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+    .footer-nav a {
+        color: #0077B6;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #FF6F61;
+    margin-top: 1rem;
+}
+
+
     /* floating shapes */
 
 .brand-summary {
