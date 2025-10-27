@@ -376,15 +376,29 @@ main {
     grid-column: span 2;
   }
   
-  /* Mobile-friendly */
-  @media (max-width: 800px) {
+/* === Mobile Fix for Comic Collage === */
+@media (max-width: 768px) {
     .comic-collage {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      padding: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* smaller columns */
+      gap: 1rem;
+      padding: 1.2rem;
     }
-    .collage-item.tall, .collage-item.wide {
-      grid-column: span 1;
-      grid-row: span 1;
+  
+    .collage-item {
+      border-width: 3px;
+      box-shadow: 3px 3px 0 #000;
+    }
+  
+    .collage-item img {
+      height: 150px; /* keeps proportions nice on mobile */
+      object-fit: cover;
+    }
+  
+    /* disable tall/wide spans so grid packs tighter */
+    .collage-item.tall,
+    .collage-item.wide {
+      grid-column: auto;
+      grid-row: auto;
     }
   }
 
