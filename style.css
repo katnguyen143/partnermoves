@@ -25,6 +25,10 @@ h1, h2, h3, h4 {
     margin-bottom: 0.5rem;
 }
 
+.logo {
+    position: relative;
+}
+/* ====== HEADER BASE ====== */
 header {
     display: flex;
     justify-content: space-between;
@@ -32,38 +36,78 @@ header {
     padding: 1rem 2rem;
     background: #ff6f61;
     color: #fff;
-    text-shadow: 2px 2px 0 #000;
     border: 4px solid #000;
     box-shadow: 3px 3px 0 #000;
-}
-
-.logo {
-    position: relative;
-}
-
-nav a {
-    margin-left: 1rem;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 700;
-    background: #0077B6;          /* bright blue background */
-    padding: 0.5rem 1rem;
-    border: 3px solid #000;       /* comic-style outline */
-    border-radius: 8px;
-    box-shadow: 3px 3px 0 #000;   /* offset comic shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-nav a:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0 #000;
-    background: #00A8E8; /* lighter blue hover tone */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* stays above everything */
   }
   
-  nav a.active {
-    background: #FF6F61; /* coral to highlight current page */
+  /* Nav links (desktop) */
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    background: #0077b6;
     color: #fff;
-    box-shadow: 3px 3px 0 #000 inset;
+    font-weight: 600;
+    border: 3px solid #000;
+    box-shadow: 3px 3px 0 #000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .nav-links a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+  }
+  
+  /* ====== MOBILE MENU ====== */
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Mobile breakpoint */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    /* Hide links by default on mobile */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #fffdf9;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 220px;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      padding: 1rem;
+      z-index: 999;
+    }
+  
+    .nav-links a {
+      color: #000;
+      background: #ff6f61;
+      box-shadow: 2px 2px 0 #000;
+      margin-bottom: 0.5rem;
+    }
+  
+    /* When menu is active */
+    .nav-links.active {
+      display: flex;
+    }
   }
 
 .hero {
