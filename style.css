@@ -217,6 +217,11 @@ section {
     border-top: 2px solid #000; /* only first gets a top border */
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 
 main {
     position: relative;
@@ -741,7 +746,6 @@ main {
       margin-top: 1rem;
     }
   }
-
 
 .retreats {
     padding: 3rem 2rem;
