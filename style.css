@@ -381,10 +381,13 @@ main {
     margin-left: auto;
     margin-right: auto;
     grid-auto-flow: dense;
+    justify-items: center;
+    align-items: stretch;
   }
   
   /* Each panel */
   .collage-item {
+    width: 100;
     border: 4px solid #000;
     box-shadow: 4px 4px 0 #000;
     border-radius: 12px;
@@ -395,6 +398,7 @@ main {
   
   /* Images inside */
   .collage-item img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -438,24 +442,20 @@ main {
 /* === Mobile Fix for Comic Collage === */
 @media (max-width: 768px) {
     .comic-collage {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* slightly wider */
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-auto-rows: minmax(180px, auto);
+      padding: 1.5rem;
       gap: 1rem;
-      padding: 1.2rem;
+    }
+  
+    .collage-item.tall,
+    .collage-item.wide {
+      grid-row: auto;
+      grid-column: auto;
     }
   
     .collage-item img {
-      height: 220px; /* make images taller */
-      object-fit: cover;
-    }
-  
-    .collage-item {
-      border-width: 3px;
-      box-shadow: 3px 3px 0 #000;
-    }
-  
-    /* let tall images stand out a bit more */
-    .collage-item.tall img {
-      height: 280px;
+      aspect-ratio: 1 / 1;
     }
   }
 
