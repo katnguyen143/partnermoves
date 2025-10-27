@@ -244,41 +244,6 @@ main {
     z-index: 2;
   }
   
-  .splash-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3rem;
-    z-index: 1;
-  }
-  
-  /* Wider orange blob (but same black outline) */
-  .comic-splash-shape {
-    position: absolute;
-    width: 800px;   /* wider */
-    height: 470px;  /* slightly taller */
-    background: #FF6F61;
-    border-radius: 65% 35% 55% 45% / 45% 55% 40% 50%;
-    transform: rotate(-3deg);
-    box-shadow: 4px 4px 0 #000;
-    border: 4px solid #000; /* keep same outline width */
-    z-index: 1;
-  }
-  
-  /* Taller image inside the blob */
-  .splash-photo {
-    position: relative;
-    z-index: 2;
-    width: 720px;   /* smaller than blob to show more orange edge */
-    height: 440px; 
-    object-fit: cover;
-    border-radius: 65% 35% 55% 45% / 45% 55% 40% 50%;
-    border: 4px solid #000; /* same as before */
-    box-shadow: 3px 3px 0 #000;
-    transform: rotate(1deg);
-  }
-  
   /* Comic-style text bubble */
   .speech-bubble {
     position: relative;
@@ -341,6 +306,87 @@ main {
     margin: 0 auto;
   }
 
+/* === Comic Collage Grid === */
+.comic-collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.8rem;
+    margin-top: 3.5rem;
+    position: relative;
+    background: #fffdf9;
+    padding: 2rem;
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-auto-flow: dense;
+  }
+  
+  /* Each panel */
+  .collage-item {
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+  }
+  
+  /* Images inside */
+  .collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Staggered, comic-style tilts */
+  .collage-item:nth-child(odd) {
+    transform: rotate(-2deg);
+  }
+  .collage-item:nth-child(even) {
+    transform: rotate(2deg);
+  }
+  
+  /* Emphasize hover */
+  .collage-item:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 6px 6px 0 #000, 0 0 15px #0077B6;
+    z-index: 2;
+  }
+  
+  /* Optional comic paper dots behind */
+  .comic-collage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* Masonry-style shape adjustments */
+  .collage-item.tall {
+    grid-row: span 2;
+  }
+  .collage-item.wide {
+    grid-column: span 2;
+  }
+  
+  /* Mobile-friendly */
+  @media (max-width: 800px) {
+    .comic-collage {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      padding: 1.5rem;
+    }
+    .collage-item.tall, .collage-item.wide {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
 
 .brand-summary, .brand-values {
     padding: 1.5rem 2rem 3.5rem;
@@ -582,8 +628,16 @@ main {
     font-family: 'Righteous', cursive;
     font-size: 2.5rem;
     color: #ff6f61;
-    margin-bottom: 1rem;
     text-shadow: 2px 2px 0 #000;
+    margin-bottom: 0.3rem; /* reduce space below h2 */
+  }
+  
+  .founder-bio h3 {
+    font-family: 'Righteous', cursive;
+    font-size: 2rem;
+    color: #0077B6;
+    text-shadow: 2px 2px 0 #000;
+    margin-top: 0; /* remove default gap above h3 */
   }
   
   .founder-bio p {
@@ -702,6 +756,7 @@ main {
         text-decoration: none;
         font-weight: 700;
         font-size: 1rem;
+        background: #ff6f61;
     }
 
 .footer-note {
@@ -709,93 +764,3 @@ main {
     color: #fffdf9;
     margin-top: 1rem;
 }
-
-
-    /* floating shapes */
-
-.brand-summary {
-    position: relative;
-    padding: 4rem 2rem;
-    background: #fffdf9;
-    overflow: hidden;
-    text-align: center;
-}
-
-.floating-shape {
-    position: absolute;
-    opacity: 0.2;
-    z-index: 0;
-    animation: float 12s ease-in-out infinite;
-}
-
-/* Coral blob */
-.shape-coral {
-    width: 180px;
-    height: 180px;
-    background: #FF6F61;
-    border-radius: 50% 60% 40% 70% / 60% 40% 70% 50%;
-}
-
-/* Lagoon swirl */
-.shape-lagoon {
-    width: 220px;
-    height: 160px;
-    background: #0077B6;
-    border-radius: 60% 40% 70% 50% / 50% 70% 40% 60%;
-}
-
-/* Nature green bubble */
-.shape-green {
-    width: 140px;
-    height: 140px;
-    background: #41915B;
-    border-radius: 70% 50% 60% 40% / 40% 60% 50% 70%;
-}
-
-/* Peach accent */
-.shape-peach {
-    width: 160px;
-    height: 120px;
-    background: #F5AC50;
-    border-radius: 40% 70% 50% 60% / 60% 50% 70% 40%;
-}
-
-/* orange accent */
-.shape-orange {
-    width: 160px;
-    height: 160px;
-    background: #FF914D;
-    border-radius: 60% 40% 70% 50% / 50% 70% 40% 60%;
-    opacity: 0.25;
-}
-
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-
