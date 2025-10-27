@@ -438,9 +438,14 @@ main {
 /* === Mobile Fix for Comic Collage === */
 @media (max-width: 768px) {
     .comic-collage {
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* smaller columns */
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* slightly wider */
       gap: 1rem;
       padding: 1.2rem;
+    }
+  
+    .collage-item img {
+      height: 220px; /* make images taller */
+      object-fit: cover;
     }
   
     .collage-item {
@@ -448,16 +453,9 @@ main {
       box-shadow: 3px 3px 0 #000;
     }
   
-    .collage-item img {
-      height: 150px; /* keeps proportions nice on mobile */
-      object-fit: cover;
-    }
-  
-    /* disable tall/wide spans so grid packs tighter */
-    .collage-item.tall,
-    .collage-item.wide {
-      grid-column: auto;
-      grid-row: auto;
+    /* let tall images stand out a bit more */
+    .collage-item.tall img {
+      height: 280px;
     }
   }
 
