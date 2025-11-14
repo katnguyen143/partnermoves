@@ -1,13 +1,16 @@
 :root {
-  --blue: #5E8EEB;
-  --red: #F05C4A;
-  --yellow: #FFD84D;
-  --paper: #FFF5E1;
-  --ink: #1F1F1F;
+  --red:   #D4503E;  
+  --blue:  #75A8D0; 
+  --yellow:#F9D77E;  
+  --tan:   #F2EAD9; 
+  --paper: #FFF9F1;  
+  --ink:   #2A2A2A;  
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+
 body {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--paper) 50%, var(--red) 100%);
+  background: var(--tan);
   background-attachment: fixed;
   color: var(--ink);
   font-family: 'Poppins', sans-serif;
@@ -33,6 +36,27 @@ h1, h2, h3, h4 {
     margin-bottom: 0.5rem;
 }
 
+h1.scribble, h2.scribble, h3.scribble {
+  position: relative;
+  display: inline-block;
+}
+
+h1.scribble::after,
+h2.scribble::after,
+h3.scribble::after {
+  content: "";
+  width: 95px;
+  height: 14px;
+  background: var(--yellow);
+  border-radius: 999px;
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%) rotate(-5deg);
+  opacity: 0.9;
+  z-index: -1;
+}
+
 .logo {
     position: relative;
 }
@@ -44,8 +68,7 @@ header {
     padding: 1rem 2rem;
     background: var(--red);
     color: #fff;
-    border: 4px solid var(--ink);
-    text-shadow: 2px 2px 0 #000;
+    text-shadow: 2px 2px 0 var(--ink);
     position: sticky;
     top: 0;
     z-index: 1000; /* stays above everything */
@@ -60,10 +83,10 @@ header {
 header .nav-links a {
     text-decoration: none;
     background: var(--blue);
-    border: 3px solid var(--ink);
+    /*border: 3px solid var(--ink);*/
     color: #fff;
     font-weight: 600;
-    box-shadow: 3px 3px 0 #000;
+    box-shadow: 3px 3px 0 var(--ink);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -71,9 +94,9 @@ header .nav-links a {
   
   header .nav-links a:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 #000;
+    box-shadow: 5px 5px 0 var(--ink);
     background: var(--yellow);
-    color: var(--ink);
+    color: var(--paper);
   }
   
   /* ====== MOBILE MENU ====== */
@@ -104,8 +127,8 @@ header .nav-links a {
       top: 100%;
       right: 0;
       width: 220px;
-      border: 3px solid #000;
-      box-shadow: 4px 4px 0 #000;
+      border: 3px solid #4B4456;
+      box-shadow: 4px 4px 0 #4B4456;
       padding: 1rem;
       z-index: 9999;
       opacity: 0;
@@ -121,9 +144,9 @@ header .nav-links a {
     }
   
     .nav-links a {
-      color: #000;
-      background: #ff6f61;
-      box-shadow: 2px 2px 0 #000;
+      color: var(--ink);
+      background: var(--red);
+      box-shadow: 2px 2px 0 var(--ink);
       margin-bottom: 0.5rem;
       text-decoration: none;
       padding: 0.5rem 1rem;
@@ -136,9 +159,9 @@ header .nav-links a {
     display: flex;
     align-items: center;
     justify-content: center; 
-    min-height: 500px;
+    min-height: 600px;
     padding: 2rem;
-    background-color: #fffdf9;
+    background-color: var(--tan);
     overflow: hidden;
     text-align: center;
 }
@@ -168,24 +191,23 @@ header .nav-links a {
     }
 
     .hero h1 {
-        font-family: 'Chewy';
-        font-size: 4rem;
-        color: #ff6f61;
-        text-shadow: 4px 4px 0 #000;
+        font-family: 'Luckiest Guy';
+        white-space: nowrap;
+        font-size: 4.5rem;
+        color: var(--red);
+        text-shadow: 4px 4px 0 var(--ink);
         letter-spacing: 2px;
       }
 
       .hero p {
         display: inline-block;
         position: relative;
-        background: #fff8f5; /* soft cream */
-        border: 2px solid #000;
+        background: var(--tan);
         border-radius: 12px;
         padding: 1rem 1.5rem;
         margin: 1rem auto 2rem;
         font-size: 1.1rem;
         color: #000;
-        box-shadow: 2px 2px 0 #000;
         background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
         background-size: 8px 8px;
         max-width: 600px;
@@ -199,33 +221,82 @@ header .nav-links a {
         left: 60px;
         border-width: 16px 16px 0 0;
         border-style: solid;
-        border-color: #fff8f5 transparent transparent transparent;
-        filter: drop-shadow(-2px 2px 0 #000);
+        border-color: var(--tan) transparent transparent transparent;
       }
-
-
-section {
-    position: relative;
-    overflow: hidden;
-    padding: 4rem 2rem;
-    text-align: center;
     
-    /* comic panel look */
-    border: 4px solid #000;
-    border-radius: 0;
-    background-clip: padding-box;
-  
-    /* layout harmony */
-    margin: 0;
-    margin-top: -2px;
-    max-width: none;
-    width: 100%!;
-    border-left: none;
-    border-right: none;
-  }
-  section:first-of-type {
-    border-top: 2px solid #000; /* only first gets a top border */
-  }
+      .hero {
+  position: relative;
+  overflow: visible;
+}
+
+.hero-photo-left {
+  position: absolute;
+  left: -8%;
+  bottom: -5%;
+  transform: translateY(20px); 
+  z-index: 3;
+}
+
+.hero-photo-left img {
+  width: 150px;  
+  max-width: 35vw;         
+  transform: rotate(-2deg);    /* slight comic tilt */
+}
+
+/* Section spacing */
+section {
+  position: relative;
+  padding: 0.25rem 1rem;
+  z-index: 1;
+}
+.section-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5rem 2rem;
+    overflow: hidden;
+}
+
+/* optional overlay for readability */
+.section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.4); /* soften image */
+    backdrop-filter: blur(1px);         /* optional */
+    z-index: 0;
+}
+
+/* ensure content sits above overlay */
+.section-bg > * {
+    position: relative;
+    z-index: 1;
+}
+.section-bg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #FFF5E1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* === UNIVERSAL SECTION BOXES === */
+.section-box {
+  background: var(--paper);       /* soft inner panel color */
+  border-radius: 32px;            /* smooth edges */
+  padding: 1.5rem 2rem 3rem 2rem;             /* spacious inside */
+  padding-top: 0rem;
+  max-width: 1200px;              /* neat layout */
+  margin: 1.5rem auto;              /* space around so background shows */
+  box-shadow: 
+      0 10px 25px rgba(0,0,0,0.08), 
+      0 2px 8px rgba(0,0,0,0.05); /* soft retro shadow */
+}
 
   img {
     display: block;
@@ -244,10 +315,11 @@ main {
     padding: 0.75rem 1.5rem;
     background: var(--red);
     color: #fff;
-    border: 3px solid var(--ink);
+    /*border: 3px solid var(--ink);*/
     box-shadow: 3px 3px 0 var(--ink);
     transition: transform 0.2s ease;
     border-radius: 8px;
+    text-shadow: 2px 2px 0 var(--ink);
     text-decoration: none;
     font-weight: 700;
 }
@@ -258,7 +330,7 @@ main {
 
     .cta:hover {
       background: var(--yellow);
-      color: var(--ink);
+      color: var(--paper);
     }
 
     .section-header {
@@ -289,28 +361,23 @@ main {
         min-height: 80vh; /* taller section */
     }
     
-      header, .site-footer {
-        border: 4px solid #000;
-      }
 
 /* about */
 .about-section {
     position: relative;
-    padding: 3rem 2rem 6rem;
+    padding: 3rem 2rem 3rem;
     text-align: center;
     overflow: hidden;
   }
   
   .about-section h1 {
     font-family: 'Righteous', cursive;
-    font-size: 2.5rem;
-    color: #0077b6;
-    background: #fff;
-    text-shadow: 2px 2px 0 #000;
+    font-size: 4rem;
+    color: var(--blue);
+    text-shadow: 2px 2px 0 #4B4456;
     display: inline-block;
-    padding: 0.5rem 2rem;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0 #000;
+    border: none;
+    box-shadow: none;
     letter-spacing: 1px;
     margin-bottom: 3rem;
     border-radius: 10px;
@@ -321,13 +388,11 @@ main {
   /* Comic-style text bubble */
   .speech-bubble {
     position: relative;
-    background: #fff8f5;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0 #000;
+    background: var(--tan);
     border-radius: 20px;
     padding: 2.5rem;
     line-height: 1.7;
-    color: #000;
+    color: var(--ink);
     font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
@@ -347,8 +412,16 @@ main {
     left: 60px;
     border-width: 20px 20px 0 0;
     border-style: solid;
-    border-color: #fff8f5 transparent transparent transparent;
-    filter: drop-shadow(-2px 2px 0 #000);
+    border-color: var(--tan) transparent transparent transparent;
+    /*filter: drop-shadow(-2px 2px 0 #000);*/
+  }
+
+  .cartoon-face {
+    width: 140px;
+    margin-top: -20px;
+    margin-left: 70px;
+    position: relative;
+    z-index: 2;
   }
   
   /* Responsive adjustments */
@@ -389,8 +462,8 @@ main {
     position: relative;
     background: #fffdf9;
     padding: 2rem;
-    border: 4px solid #000;
-    box-shadow: 6px 6px 0 #000;
+    border: none;
+    box-shadow: none;
     border-radius: 16px;
     max-width: 1100px;
     margin-left: auto;
@@ -399,12 +472,19 @@ main {
     justify-items: center;
     align-items: stretch;
   }
+  .comic-collage::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: var(--yellow);
+  opacity: 0.08;
+  filter: blur(30px);
+  z-index: -1;
+}
   
   /* Each panel */
   .collage-item {
     width: 100;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0 #000;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -475,22 +555,28 @@ main {
   }
 
 .brand-summary, .brand-values {
-    padding: 1rem 2rem 3rem;
+    padding: 1rem 2rem 1rem;
+    padding-top: .5rem;
     position: relative;
     overflow: visible;
     text-align: center;
 }
 
+.brand-values .section-box {
+  margin-top: 0.5rem;
+}
+
     .brand-summary h3, .brand-values h3 {
         font-family: 'Righteous', cursive;
-        font-size: 2.5rem;
-        color: #fff;
-        background: #ff6f61;
+        font-size: 4rem;
+        color: var(--yellow);
         text-shadow: 2px 2px 0 #000;
         display: inline-block;
-        padding: 0.5rem 2rem;
-        border: 3px solid #000;
-        box-shadow: 4px 4px 0 #000;
+        border: none;
+        box-shadow: none;
+        background: none;
+        position: relative;
+        padding: 0.2rem 0.5rem;
         letter-spacing: 1px;
         border-radius: 10px;
         position: relative;
@@ -598,21 +684,38 @@ main {
 
 
 .value-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* allows responsive stacking */
 }
 
 .value-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 1rem;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0 #000;
-    width: 220px;
-    font-size: 1rem;
+  flex: 1 1 240px;  /* responsive width */
+  max-width: 260px; /* keeps them from blowing up */
+  background: var(--paper);
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+}
+
+/* Red Card */
+.value-card.value-red {
+  background: var(--red);
+  color: #fff; /* white text for contrast */
+}
+
+/* Blue Card */
+.value-card.value-blue {
+  background: var(--blue);
+  color: #fff; /* white text for contrast */
+}
+
+/* Yellow Card */
+.value-card.value-yellow {
+  background: var(--yellow);
+  color: var(--ink); /* dark text for readability */
 }
 
 .offerings {
@@ -622,14 +725,14 @@ main {
 
     .offerings h2 {
         font-family: 'Righteous', cursive;
-        font-size: 2.5rem;
-        color: #fff;
+        font-size: 4rem;
+        color: var(--red);
         text-shadow: 2px 2px 0 #000;
-        background: #0077b6;
         display: inline-block;
-        padding: 0.5rem 2rem;
-        border: 3px solid #000;
-        box-shadow: 4px 4px 0 #000;
+        border: none;
+        box-shadow: none;
+        background: none;
+        position: relative;
         letter-spacing: 1px;
         margin-bottom: 3rem;
         border-radius: 10px;
@@ -644,19 +747,20 @@ main {
 }
 
 .activity-card {
-    display: block;
-    text-decoration: none;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-    border: 3px solid #000;
-    box-shadow: 3px 3px 0 #000;
-    transition: transform 0.3s ease;
+  display: block;
+  text-decoration: none;
+  border-radius: 20px;                 /* softer corners */
+  overflow: hidden;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.25s ease;
 }
 
-    .activity-card:hover {
-        transform: scale(1.03);
-    }
+.activity-card:hover {
+  transform: scale(1.03);
+}
 
     .activity-card img {
         width: 100%;
@@ -665,10 +769,31 @@ main {
     }
 
     .activity-card h3 {
-        margin: 1rem;
-        font-size: 1.3rem;
-        color: #FF6F61;
+      margin: 1rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: inherit;     /* automatically matches card text color */
     }
+
+.card-red {
+  background: var(--red);
+  color: var(--paper);
+}
+
+.card-blue {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+.card-yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.card-tan {
+  background: var(--tan);
+  color: var(--ink);
+}
 
 /* founder */
 .founder {
@@ -678,11 +803,12 @@ main {
     justify-content: center;
     gap: 3rem;
     padding: 4rem 1.5rem;
+    background: var(--paper);
     max-width: 900px;
-    margin: 4rem auto 4rem;
-    background: #fffdf9;              /* solid cream tone (no transparency) */
-    border: 4px solid #000;           /* comic-style outline */
-    box-shadow: 6px 6px 0 #000;       /* bold comic shadow */
+    margin: 1rem auto 4rem;
+    box-shadow: 
+      0 10px 25px rgba(0,0,0,0.08), 
+      0 2px 8px rgba(0,0,0,0.05);
     border-radius: 12px;
     text-align: left;
   }
@@ -691,8 +817,6 @@ main {
   .founder-photo img {
     width: 100%;
     max-width: 400px;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0 #000;
     border-radius: 12px;
   }
   
@@ -707,7 +831,7 @@ main {
   .founder-bio h2 {
     font-family: 'Righteous', cursive;
     font-size: 2.5rem;
-    color: #ff6f61;
+    color: var(--red);
     text-shadow: 2px 2px 0 #000;
     margin-bottom: 0.3rem; /* reduce space below h2 */
   }
@@ -715,7 +839,7 @@ main {
   .founder-bio h3 {
     font-family: 'Righteous', cursive;
     font-size: 2rem;
-    color: #0077B6;
+    color: var(--blue);
     text-shadow: 2px 2px 0 #000;
     margin-top: 0; /* remove default gap above h3 */
   }
@@ -729,14 +853,13 @@ main {
   /* CTA button in comic style */
   .founder .cta {
     display: inline-block;
-    background-color: #0077B6;
+    background-color: var(--yellow);
     color: #fff;
     padding: 0.6rem 1.4rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
-    border: 3px solid #000;
-    box-shadow: 3px 3px 0 #000;
+    box-shadow: 3px 3px 0 #4B4456;
     transition: transform 0.2s ease;
   }
   
@@ -753,8 +876,7 @@ main {
       padding: 2rem 1.5rem;      /* add comfy inner space */
       margin: 2.5rem auto;
       background: #fffdf9;
-      border: 3px solid #000;
-      box-shadow: 4px 4px 0 #000;
+      box-shadow: 3px 3px 0 var(--ink);
       border-radius: 10px;
     }
   
@@ -825,8 +947,6 @@ main {
   overflow: hidden;
   font-size: 0.95rem;
   color: var(--paper);
-  border-top: 4px solid var(--ink);
-  box-shadow: 0 -4px 0 var(--ink);
 }
 
 /* Add a subtle halftone dot overlay */
@@ -861,6 +981,7 @@ main {
 }
 
 /* Navigation buttons */
+
 .footer-nav a {
   text-decoration: none;
   font-weight: 700;
@@ -868,19 +989,19 @@ main {
   background: var(--red);
   color: var(--paper);
   text-shadow: 2px 2px 0 var(--ink);
-  border: 3px solid var(--ink);
   box-shadow: 3px 3px 0 var(--ink);
-  padding: 0.5rem 1.2rem;
   border-radius: 8px;
+  padding: 0.5rem 1.2rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .footer-nav a:hover {
   background: var(--yellow);
-  color: var(--ink);
+  color: var(--paper);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 var(--ink), 0 0 10px rgba(255, 216, 77, 0.5);
 }
+
 
 /* Footer note */
 .footer-note {
@@ -888,4 +1009,24 @@ main {
   color: var(--paper);
   margin-top: 1.5rem;
   opacity: 0.9;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;    /* spacing between buttons */
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .footer-nav {
+    gap: 1rem;        /* more space between buttons */
+    flex-wrap: wrap;  /* allow wrapping */
+  }
+
+  .footer-nav a {
+    margin: 0.4rem 0; /* vertical spacing to prevent overlap */
+    padding: 0.6rem 1rem; /* slightly smaller buttons */
+  }
 }
