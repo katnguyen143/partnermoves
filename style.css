@@ -388,7 +388,7 @@ main {
   /* Comic-style text bubble */
   .speech-bubble {
     position: relative;
-    background: var(--tan);
+    background: var(--yellow);
     border-radius: 20px;
     padding: 2.5rem;
     line-height: 1.7;
@@ -412,7 +412,7 @@ main {
     left: 60px;
     border-width: 20px 20px 0 0;
     border-style: solid;
-    border-color: var(--tan) transparent transparent transparent;
+    border-color: var(--yellow) transparent transparent transparent;
     /*filter: drop-shadow(-2px 2px 0 #000);*/
   }
 
@@ -422,24 +422,6 @@ main {
     margin-left: 70px;
     position: relative;
     z-index: 2;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 900px) {
-    .comic-splash-shape {
-      width: 300px;
-      height: 240px;
-    }
-  
-    .splash-photo {
-      width: 280px;
-      height: 220px;
-    }
-  
-    .speech-bubble {
-      text-align: center;
-      padding: 2rem;
-    }
   }
 
   .intro-bubble.layout-side {
@@ -460,7 +442,7 @@ main {
     gap: 1.8rem;
     margin-top: 3.5rem;
     position: relative;
-    background: #fffdf9;
+    background: var(--tan);
     padding: 2rem;
     border: none;
     box-shadow: none;
@@ -510,7 +492,6 @@ main {
   /* Emphasize hover */
   .collage-item:hover {
     transform: rotate(0deg) scale(1.05);
-    box-shadow: 6px 6px 0 #000, 0 0 15px #0077B6;
     z-index: 2;
   }
   
@@ -532,26 +513,6 @@ main {
   }
   .collage-item.wide {
     grid-column: span 2;
-  }
-  
-/* === Mobile Fix for Comic Collage === */
-@media (max-width: 768px) {
-    .comic-collage {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      grid-auto-rows: minmax(180px, auto);
-      padding: 1.5rem;
-      gap: 1rem;
-    }
-  
-    .collage-item.tall,
-    .collage-item.wide {
-      grid-row: auto;
-      grid-column: auto;
-    }
-  
-    .collage-item img {
-      aspect-ratio: 1 / 1;
-    }
   }
 
 .brand-summary, .brand-values {
@@ -594,6 +555,20 @@ main {
         font-size: 1.1rem;
         line-height: 1.6;
     }
+
+.values-splash {
+  position: absolute;
+  top: -40px;         /* pull upward a bit for the overlapping comic effect */
+  right: 50px;       /* offset outside the box edge for style */
+  width: 200px;       /* adjust size if needed */
+  z-index: 3;         /* keep above box + background */
+  pointer-events: none;
+  transform: rotate(-3deg);
+}
+  
+.brand-values .section-box {
+  position: relative; /* required for absolute positioning */
+}
 
 /* Angled Panels */
 .panel {
@@ -866,30 +841,6 @@ main {
   .founder .cta:hover {
     transform: translate(-3px, -3px);
   }
-  
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .founder {
-      flex-direction: column;
-      align-items: center;
-      max-width: 80%;            /* narrower white box (more gradient on sides) */
-      padding: 2rem 1.5rem;      /* add comfy inner space */
-      margin: 2.5rem auto;
-      background: #fffdf9;
-      box-shadow: 3px 3px 0 var(--ink);
-      border-radius: 10px;
-    }
-  
-    .founder-photo img {
-      max-width: 280px;
-      margin-bottom: 1.2rem;
-    }
-  
-    .founder-bio {
-      text-align: center;
-      max-width: 95%;
-    }
-  }
 
 .retreats {
     padding: 3rem 2rem;
@@ -1019,14 +970,126 @@ main {
   margin-top: 1rem;
 }
 
+/* ================================
+   📱 MOBILE FIXES (max-width: 600px)
+   ================================ */
 @media (max-width: 600px) {
+
+  /* ---- HERO SECTION ---- */
+  .hero {
+    min-height: 450px;
+    padding: 1.5rem 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    text-shadow: 2px 2px 0 var(--ink);
+    white-space: normal; /* allow wrapping */
+  }
+
+  .hero p {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+    max-width: 90%;
+  }
+
+  .hero-photo-left {
+    left: 0;
+    bottom: -10px;
+    transform: none;
+  }
+
+  .hero-photo-left img {
+    width: 120px !important;
+  }
+
+  /* ---- SECTION BOXES ---- */
+  .section-box {
+    margin: 1.5rem auto;
+    padding: 1.2rem 1.2rem 2rem;
+    border-radius: 22px;
+  }
+
+  /* reduce gap before values grid */
+  .brand-values .section-box {
+    margin-top: 0.8rem;
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  h1, h2, h3 {
+    font-size: 2.2rem !important;
+  }
+
+  .brand-summary h3,
+  .brand-values h3,
+  .offerings h2 {
+    font-size: 2.6rem !important;
+    text-shadow: 1px 1px 0 var(--ink);
+  }
+
+  /* ---- VALUES SPLASH ---- */
+  .values-splash {
+    width: 110px;
+    top: -10px;
+    right: -10px;
+  }
+
+  /* ---- VALUE CARDS ---- */
+  .value-card {
+    padding: 1rem;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .value-grid {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ---- COMIC COLLAGE ---- */
+  .comic-collage {
+    padding: 1rem;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  /* ---- ABOUT BUBBLE ---- */
+  .speech-bubble {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .cartoon-face {
+    width: 100px;
+    margin-top: 0;
+    margin-left: 0;
+    display: block;
+    margin-inline: auto;
+  }
+
+  /* ---- OFFERINGS ---- */
+  .activity-grid {
+    gap: 1rem;
+  }
+
+  .activity-card img {
+    height: 160px;
+  }
+
+  /* ---- FOOTER ---- */
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+
   .footer-nav {
-    gap: 1rem;        /* more space between buttons */
-    flex-wrap: wrap;  /* allow wrapping */
+    gap: 0.7rem;
   }
 
   .footer-nav a {
-    margin: 0.4rem 0; /* vertical spacing to prevent overlap */
-    padding: 0.6rem 1rem; /* slightly smaller buttons */
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
   }
 }
