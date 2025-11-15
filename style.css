@@ -416,14 +416,6 @@ main {
     /*filter: drop-shadow(-2px 2px 0 #000);*/
   }
 
-  .cartoon-face {
-    width: 140px;
-    margin-top: -20px;
-    margin-left: 70px;
-    position: relative;
-    z-index: 2;
-  }
-
   .intro-bubble.layout-side {
     display: grid;
     grid-template-columns: 1fr 1fr;  /* two equal columns */
@@ -971,39 +963,46 @@ main {
 }
 
 /* ================================
-   📱 MOBILE FIXES (max-width: 600px)
+   📱 MOBILE
    ================================ */
 @media (max-width: 600px) {
 
-  /* ---- HERO SECTION ---- */
   .hero {
-    min-height: 450px;
-    padding: 1.5rem 1rem;
+    min-height: auto; 
+    padding: 2.5rem 1rem 3rem;
     flex-direction: column;
     justify-content: flex-start;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: 2.6rem;
-    text-shadow: 2px 2px 0 var(--ink);
-    white-space: normal; /* allow wrapping */
+    font-size: 3rem !important;
+    line-height: 1.1;
+    white-space: normal; 
+    margin-bottom: 1rem;
   }
 
   .hero p {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    padding: 0.8rem 1rem;
-    max-width: 90%;
+    max-width: 95%;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-photo-left {
+    position: relative;
     left: 0;
-    bottom: -10px;
+    bottom: 0;
+    margin-top: 1rem;
     transform: none;
   }
 
   .hero-photo-left img {
-    width: 120px !important;
+    width: 130px !important;
+    max-width: 40vw;
+    display: block;
+    margin: 0 auto;
+    transform: rotate(-2deg);
   }
 
   /* ---- SECTION BOXES ---- */
@@ -1062,21 +1061,30 @@ main {
     font-size: 0.95rem;
   }
 
-  .cartoon-face {
-    width: 100px;
-    margin-top: 0;
-    margin-left: 0;
-    display: block;
-    margin-inline: auto;
-  }
-
   /* ---- OFFERINGS ---- */
   .activity-grid {
     gap: 1rem;
   }
 
+  .activity-card h3 {
+    font-size: 1rem !important; 
+    margin: 0.7rem 0.6rem;
+  }
+
   .activity-card img {
     height: 160px;
+  }
+
+  .founder {
+    max-width: 80%;        /* make the white box narrower */
+    padding: 1.2rem 1.2rem;  /* side padding for breathing room */
+    border-radius: 14px;
+    background: #fffdf9;
+  }
+
+  .founder-bio {
+    text-align: center;
+    max-width: 95%;
   }
 
   /* ---- FOOTER ---- */
