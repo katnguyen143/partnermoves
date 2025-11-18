@@ -211,6 +211,9 @@ header .nav-links a {
         background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
         background-size: 8px 8px;
         max-width: 600px;
+        box-shadow: 
+      /*0 10px 25px rgba(0,0,0,0.08), */
+        0 2px 8px rgba(0,0,0,0.05);
       }
       
       /* little comic tail */
@@ -290,6 +293,7 @@ section {
   background: var(--paper);       /* soft inner panel color */
   border-radius: 32px;            /* smooth edges */
   padding: 1.5rem 2rem 3rem 2rem;             /* spacious inside */
+  text-align: center;
   padding-top: 0rem;
   max-width: 1200px;              /* neat layout */
   margin: 1.5rem auto;              /* space around so background shows */
@@ -363,12 +367,14 @@ main {
     
 
 /* about */
+/* ---------- LIFT SPLASH BETWEEN SECTIONS ---------- */
+
 .about-section {
     position: relative;
     padding: 3rem 2rem 3rem;
     text-align: center;
-    overflow: hidden;
-  }
+    overflow: visible; /* FIXED */
+}
   
   .about-section h1 {
     font-family: 'Righteous', cursive;
@@ -384,16 +390,37 @@ main {
     position: relative;
     z-index: 2;
   }
+
+  .letsplay-about {
+    position: absolute;
+    top: -2.5%;
+    left: 2%;
+    width: 190px;
+    transform: rotate(-4deg);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  @media (max-width: 600px) {
+  .letsplay-about {
+    top: -10px;       /* lower so it doesn't get cut off */
+    left: 10px;       /* nudge inward */
+    width: 120px;     /* scale proportionally */
+    transform: rotate(-3deg);
+    z-index: 10;      /* always above the section-box */
+  }
+}
   
   /* Comic-style text bubble */
   .speech-bubble {
     position: relative;
-    background: var(--yellow);
+    background: var(--tan);
     border-radius: 20px;
     padding: 2.5rem;
     line-height: 1.7;
     color: var(--ink);
     font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -402,6 +429,9 @@ main {
     margin: 0 auto;
     background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
     background-size: 8px 8px;
+    box-shadow: 
+      /*0 10px 25px rgba(0,0,0,0.08), */
+      0 2px 8px rgba(0,0,0,0.05);
   }
   
   /* Speech bubble tail */
@@ -412,7 +442,7 @@ main {
     left: 60px;
     border-width: 20px 20px 0 0;
     border-style: solid;
-    border-color: var(--yellow) transparent transparent transparent;
+    border-color: var(--tan) transparent transparent transparent;
     /*filter: drop-shadow(-2px 2px 0 #000);*/
   }
 
@@ -429,49 +459,77 @@ main {
 
 /* === Comic Collage Grid === */
 .comic-collage {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1.8rem;
-    margin-top: 3.5rem;
-    position: relative;
-    background: var(--tan);
-    padding: 2rem;
-    border: none;
-    box-shadow: none;
-    border-radius: 16px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    grid-auto-flow: dense;
-    justify-items: center;
-    align-items: stretch;
-  }
-  .comic-collage::after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;              /* remove the yellow padding box */
+  background: none;        /* remove colored background */
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+/* Soft dots behind the collage (inside the section-box instead) */
+.section-box .comic-collage::before {
   content: "";
   position: absolute;
-  inset: -20px;
-  background: var(--yellow);
-  opacity: 0.08;
-  filter: blur(30px);
-  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
 }
-  
-  /* Each panel */
-  .collage-item {
-    width: 100;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #fff;
+
+.section-title {
+  font-family: 'Righteous', cursive;
+  font-size: 4rem;
+  color: var(--red);
+  text-shadow: 2px 2px 0 var(--ink);
+  text-align: center;
+  padding-top: 3rem;
+  margin: 0 auto 2rem auto;
+  display: inline-block;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.collage-item {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--paper);
+  transition: transform 0.3s ease;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.smile {
+    position: absolute;
+    top: -2.5%;
+    left: 2%;
+    width: 190px;
+    transform: rotate(-4deg);
+    pointer-events: none;
+    z-index: 5;
   }
-  
-  /* Images inside */
-  .collage-item img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  @media (max-width: 600px) {
+  .smile {
+    top: -10px;       /* lower so it doesn't get cut off */
+    left: 10px;       /* nudge inward */
+    width: 120px;     /* scale proportionally */
+    transform: rotate(-3deg);
+    z-index: 10;      /* always above the section-box */
   }
+}
   
   /* Staggered, comic-style tilts */
   .collage-item:nth-child(odd) {
@@ -665,6 +723,15 @@ main {
   background: var(--paper);
   padding: 1.25rem 1.5rem;
   border-radius: 16px;
+  font-size: 1.1rem;
+}
+
+.value-card strong {
+  font-family: 'Righteous', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.25rem;
 }
 
 /* Red Card */
@@ -693,7 +760,7 @@ main {
     .offerings h2 {
         font-family: 'Righteous', cursive;
         font-size: 4rem;
-        color: var(--red);
+        color: var(--blue);
         text-shadow: 2px 2px 0 #000;
         display: inline-block;
         border: none;
