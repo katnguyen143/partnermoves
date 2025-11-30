@@ -365,50 +365,105 @@ main {
         min-height: 80vh; /* taller section */
     }
     
-
-/* about */
-/* ---------- LIFT SPLASH BETWEEN SECTIONS ---------- */
-
+/* ABOUT SECTION LAYOUT */
 .about-section {
-    position: relative;
-    padding: 3rem 2rem 3rem;
-    text-align: center;
-    overflow: visible; /* FIXED */
+  position: relative;
+  padding: 3rem 1.5rem 3.5rem;
+  text-align: left;
+  overflow: hidden;
 }
-  
-  .about-section h1 {
-    font-family: 'Righteous', cursive;
-    font-size: 4rem;
-    color: var(--blue);
-    text-shadow: 2px 2px 0 #4B4456;
-    display: inline-block;
-    border: none;
-    box-shadow: none;
-    letter-spacing: 1px;
-    margin-bottom: 3rem;
-    border-radius: 10px;
-    position: relative;
-    z-index: 2;
-  }
 
-  .letsplay-about {
-    position: absolute;
-    top: -2.5%;
-    left: 2%;
-    width: 190px;
-    transform: rotate(-4deg);
-    pointer-events: none;
-    z-index: 5;
-  }
+.about-section h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 3.5rem;
+  color: var(--blue);
+  text-shadow: 2px 2px 0 #4B4456;
+  margin-bottom: 2.5rem;
+}
 
-  @media (max-width: 600px) {
-  .letsplay-about {
-    top: -10px;       /* lower so it doesn't get cut off */
-    left: 10px;       /* nudge inward */
-    width: 120px;     /* scale proportionally */
-    transform: rotate(-3deg);
-    z-index: 10;      /* always above the section-box */
-  }
+/* wrapper for rows */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;   /* <-- NEW */
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 2rem 3rem;
+}
+
+
+/* only rows that need the photo on the left get this extra class */
+.about-row {
+  flex-direction: row-reverse;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1.2rem;
+  max-width: 500px;
+}
+
+.about-subheading {
+  font-family: 'Righteous', cursive;
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.about-subheading-red    { color: var(--red); }
+.about-subheading-blue   { color: var(--blue); }
+.about-subheading-yellow { color: var(--yellow); }
+
+/* image column */
+.about-image {
+  flex: 0 0 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1/1;        /* square */
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+/* tighten the box a bit */
+.about-section .section-box {
+  padding: 2rem 2.5rem 2.5rem;
+}
+
+
+.tutorial-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--blue);
+  color: var(--paper);
+  text-shadow: 2px 2px 0 var(--ink);
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tutorial-button:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0 var(--ink);
 }
   
   /* Comic-style text bubble */
@@ -851,7 +906,7 @@ main {
   .founder-photo img {
     width: 100%;
     max-width: 400px;
-    border-radius: 12px;
+    border-radius: 50%;
   }
   
   /* founder bio */
