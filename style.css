@@ -308,6 +308,42 @@ section {
     height: auto;
   }
 
+/* =============== COMIC CORNER SPLASHES =============== */
+.corner-splash {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  /* responsive but capped */
+  width: min(220px, 26vw);
+}
+
+/* Corner variants */
+.splash-top-right {
+  top: -80px;
+  right: -40px;
+}
+
+.splash-top-left {
+  top: 10px;
+  left: 30px;
+}
+
+@media (max-width: 600px) {
+  .corner-splash {
+    width: min(120px, 30vw);
+  }
+
+  .splash-top-right {
+    top: -10px;
+    right: -4px;
+  }
+
+  .splash-top-left {
+    top: -10px;
+    left: -4px;
+  }
+}
+
 main {
     position: relative;
     z-index: 1;
@@ -393,7 +429,7 @@ main {
   align-items: center;   /* <-- NEW */
   justify-content: space-between;
   gap: 3rem;
-  margin: 3rem auto;
+  margin: 1rem auto;
   max-width: 1200px;
   padding: 2rem 3rem;
 }
@@ -464,6 +500,36 @@ main {
   color: #fff;
   transform: translate(-3px, -3px);
   box-shadow: 5px 5px 0 var(--ink);
+}
+
+/* Doodles between rows */
+.about-doodles {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: -10rem auto;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+.about-doodles img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile: stack the doodles if too narrow */
+@media (max-width: 650px) {
+  .about-doodles {
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 220px;
+  }
+
+  .about-doodles img {
+    width: 100%;
+  }
 }
   
   /* Comic-style text bubble */
@@ -660,16 +726,6 @@ main {
         font-size: 1.1rem;
         line-height: 1.6;
     }
-
-.values-splash {
-  position: absolute;
-  top: -40px;         /* pull upward a bit for the overlapping comic effect */
-  right: 50px;       /* offset outside the box edge for style */
-  width: 200px;       /* adjust size if needed */
-  z-index: 3;         /* keep above box + background */
-  pointer-events: none;
-  transform: rotate(-3deg);
-}
   
 .brand-values .section-box {
   position: relative; /* required for absolute positioning */
@@ -1149,13 +1205,6 @@ main {
   .offerings h2 {
     font-size: 2.6rem !important;
     text-shadow: 1px 1px 0 var(--ink);
-  }
-
-  /* ---- VALUES SPLASH ---- */
-  .values-splash {
-    width: 110px;
-    top: -10px;
-    right: -10px;
   }
 
   /* ---- VALUE CARDS ---- */
