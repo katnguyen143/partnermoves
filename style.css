@@ -710,7 +710,7 @@ main {
 }
 
 .value-card strong {
-  font-family: 'Righteous', cursive;
+  font-family: 'Luckiest Guy', cursive;
   font-size: 1.4rem;
   font-weight: 700;
   display: inline-block;
@@ -741,7 +741,7 @@ main {
 }
 
     .offerings h2 {
-        font-family: 'Righteous', cursive;
+        font-family: 'Luckiest Guy', cursive;
         font-size: 4rem;
         color: var(--blue);
         text-shadow: 2px 2px 0 #000;
@@ -863,7 +863,7 @@ main {
 }
 
 .founder-right h2 {
-  font-family: 'Righteous', cursive;
+  font-family: 'Luckiest Guy', cursive;
   font-size: 3rem;
   color: var(--red);
   text-shadow: 2px 2px 0 var(--ink);
@@ -872,7 +872,7 @@ main {
 }
 
 .founder-right h3 {
-  font-family: 'Righteous', cursive;
+  font-family: 'Luckiest Guy', cursive;
   text-shadow: 2px 2px 0 var(--ink);
   font-size: 2rem;
   color: var(--yellow);
