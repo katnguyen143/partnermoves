@@ -13,12 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon-apple.png" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
         <div class="logo">
-          <h1>Partner Moves</h1>
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
         </div>
       
         <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
@@ -32,171 +36,183 @@
       </header>
 
     <section class="hero">
-        <div class="hero-bg">
-            <img src="images/hero-2.jpg" alt="Acroyoga Group Photo" />
-        </div>
-        <div class="hero-content">
-            <h1>ACROYOGA FOR ALL</h1>
-            <p>You don't need to be flexible, fearless, or fancy — just willing to try. Partner Moves makes movement feel human, joyful, and free.</p>
-            <div class="hero-photo-left">
+        <div class="hero-row">
+        <!-- LEFT PANEL -->
+        <div class="hero-box hero-left">
+            <!-- Corner comic splash -->
+            <img src="images/letsplay.png" alt="Let's Play!" class="corner-splash splash-top-left">
+            <div class="hero-left-inner">
+                <h1>ACROYOGA FOR EVERY BODY</h1>
+
+                <p>
+                You don't need to be flexible, fearless, or fancy — just willing to try.
+                Partner Moves makes movement feel human, joyful, and free, with playful 
+                flows, grounding therapeutics, and lots of silly moments in between.
+                </p>
+
+                <div class="hero-buttons">
+                <a href="#" class="cta">Let's Practice</a>
+                <a href="#" class="cta secondary">Learn More</a>
+                </div>
+            </div>
             </div>
 
-            <a href="#" class="cta">Let's Practice</a>
-            <a href="#" class="cta secondary">Explore Retreats</a>
+            <!-- RIGHT PANEL -->
+            <div class="hero-box hero-right">
+            <img src="images/push.jpg" alt="Acroyoga Group Photo">
+            </div>
+
         </div>
     </section>
 
     <section class="about-section">
-        <div class="section-box">
-            <!-- Corner comic splash -->
-            <img src="images/letsplay.png" alt="Let's Play!" class="corner-splash splash-top-left">
+        <div class="about-layout">
 
-            <h1>Playful Movement for All Levels</h1>
-
-            <div class="about-layout">
-            <!-- Row 1: text left, image right -->
+            <!-- ROW 1 — image LEFT, text RIGHT -->
             <div class="about-row">
-                <div class="about-text">
-                <h3 class="about-subheading about-subheading-red">Playful, Social Movement</h3>
+            <!-- square image box -->
+            <div class="about-box about-img-box about-img-red">
+                <img src="images/pm_graphic2.png" alt="Playful movement illustration">
+            </div>
+
+            <!-- longer text box -->
+            <div class="about-box about-text-box">
+                <div class="about-text-inner">
+                <h2 class="about-subheading about-subheading-red">
+                    Playful, Social Movement
+                </h2>
                 <p>
                     <strong>Partner Moves</strong> is all about connection through movement.
                     We make wellness fun and social with practices like Acroyoga, Thai massage,
                     flying therapeutics (lunar Acroyoga), and partner stretches.
-                </p>
-                <p>
+
                     Whether you're joining us at a jam, online, or on retreat, you'll find
                     clear guidance, lots of laughter, and a community that cheers for you.
                 </p>
                 </div>
-
-                <div class="about-image">
-                <img src="images/pm_graphic2.png" alt="Online acro and yoga illustration">
-                </div>
+            </div>
             </div>
 
-            <!-- Doodles Divider -->
-            <div class="about-doodles">
-                <img src="images/doodle.png" alt="doodle line 1">
-                <!--<img src="images/doodle2.png" alt="doodle line 2">!-->
-            </div>
-
-            <!-- Row 2: image left, text right -->
+            <!-- ROW 2 — image RIGHT, text LEFT -->
             <div class="about-row reverse">
-                <div class="about-image">
-                <img src="images/pm_graphic.png" alt="Acroyoga balancing illustration">
-                </div>
+            <!-- square image box -->
+            <div class="about-box about-img-box about-img-yellow">
+                <img src="images/pm_graphic.png" alt="Online tutorials illustration">
+            </div>
 
-                <div class="about-text">
-                <h3 class="about-subheading about-subheading-yellow">Learn With Tutorials</h3>
-
+            <!-- longer text box -->
+            <div class="about-box about-text-box">
+                <div class="about-text-inner">
+                <h2 class="about-subheading about-subheading-yellow">
+                    Learn With Tutorials
+                </h2>
                 <p>
-                    Our tutorials break down movements in a simple, welcoming way so you can try new skills at your own pace.
-                    Every video is beginner-friendly, clearly explained, and focused on safety and communication.
+                    Our tutorials break down movements in a simple, welcoming way so you can
+                    try new skills at your own pace. Every video is beginner-friendly, clearly
+                    explained, and focused on safety and communication.
                 </p>
-
-                <p>
-                    Whether you're exploring your first counterbalance or refining transitions, you'll always find guidance
-                    that feels doable and fun.
-                </p>
-
                 <a href="/tutorials" class="tutorial-button">View Tutorials</a>
                 </div>
             </div>
             </div>
+
         </div>
     </section>
 
     <section class="brand-values">
-  <div class="section-box">
+        <div class="section-box">
+            <h3>Our Core Values</h3>
 
-    <!-- Corner Splash -->
-    <img src="images/lift.png" alt="Lift!" class="corner-splash splash-top-right">
+            <div class="value-grid">
+                <div class="value-card value-blue">
+                    <strong>Fun </strong><br>
+                    Joyful, energetic, and full of playfulness. We believe movement feels best
+                    when it brings laughter, curiosity, and a sense of adventure to every practice.
+                </div>
 
-    <h3>Our Core Values</h3>
+                <div class="value-card value-red">
+                    <strong>Approachable </strong><br>
+                    Clear, welcoming, and easy to step into. Every class is designed so anyone can
+                    join, feel supported, and grow at a pace that feels comfortable and empowering.
+                </div>
 
-    <div class="value-grid">
-      <div class="value-card value-blue">
-        <strong>Fun </strong><br>
-        Joyful, energetic, and full of playfulness. We believe movement feels best
-        when it brings laughter, curiosity, and a sense of adventure to every practice.
-      </div>
-
-      <div class="value-card value-red">
-        <strong>Approachable </strong><br>
-        Clear, welcoming, and easy to step into. Every class is designed so anyone can
-        join, feel supported, and grow at a pace that feels comfortable and empowering.
-      </div>
-
-      <div class="value-card value-yellow">
-        <strong>Friendly </strong><br>
-        Warm, encouraging, and community-focused. We create an environment where people
-        feel safe, connected, and inspired to build trust.
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="value-card value-yellow">
+                    <strong>Friendly </strong><br>
+                    Warm, encouraging, and community-focused. We create an environment where people
+                    feel safe, connected, and inspired to build trust.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="comic-section">
-  
-        <!-- Corner splash -->
-        <img src="images/smile.png" alt="Smile!" class="corner-splash splash-top-left">
-
-        <div class="section-box">
-            <h2 class="section-title">Photo Gallery</h2>
+        <img src="images/smile.png" alt="Smile!" class="corner-splash splash-top-right">
+        <div class="section-box section-box--flat">
+            <h2 class="section-title">Moments of Play!</h2>
 
             <div class="comic-collage">
-            <div class="collage-item tall"><img src="images/tomoko2.jpg" alt=""></div>
-            <div class="collage-item"><img src="images/partner-moves-photo.jpg" alt=""></div>
-            <div class="collage-item wide"><img src="images/circle.jpg" alt=""></div>
-            <div class="collage-item"><img src="images/testimonial.jpg" alt=""></div>
-            <div class="collage-item"><img src="images/sunset.jpg" alt=""></div>
-            <div class="collage-item"><img src="images/push.jpg" alt=""></div>
+                <div class="collage-item tall"><img src="images/tomoko2.jpg" alt=""></div>
+                <div class="collage-item"><img src="images/partner-moves-photo.jpg" alt=""></div>
+                <div class="collage-item wide"><img src="images/group-photo.jpg" alt=""></div>
+                <div class="collage-item"><img src="images/testimonial.jpg" alt=""></div>
+                <div class="collage-item"><img src="images/sunset.jpg" alt=""></div>
+                <div class="collage-item"><img src="images/alo.jpg" alt=""></div>
             </div>
         </div>
     </section>
 
     <section class="offerings">
-    <div class="section-box">
-        <h2>What we provide...</h2>
+        <img src="images/lift.png" alt="Lift!" class="corner-splash splash-top-left">
+        <div class="section-box">
+            <h2>What we provide...</h2>
 
-        <div class="activity-grid">
-            
-            <a href="/acroyoga" class="activity-card card-red">
-                <img src="images/acroyoga.jpg" alt="Acroyoga outdoors" />
-                <h3>Acroyoga</h3>
-            </a>
+            <div class="activity-grid">
+                
+                <a href="/acroyoga" class="activity-card card-red">
+                    <img src="images/acroyoga.jpg" alt="Acroyoga outdoors" />
+                    <h3>Acroyoga</h3>
+                </a>
 
-            <a href="/thai-massage" class="activity-card card-yellow">
-                <img src="images/thai-massage.jpg" alt="Thai Massage in tent" />
-                <h3>Thai Massage & Therapeutics</h3>
-            </a>
+                <a href="/thai-massage" class="activity-card card-yellow">
+                    <img src="images/flying-therapeutics.JPG" alt="Thai Massage in tent" />
+                    <h3>Thai Massage & Therapeutics</h3>
+                </a>
 
-            <a href="/partner-stretches" class="activity-card card-blue">
-                <img src="images/partner-stretches.jpg" alt="Partner Stretches indoors" />
-                <h3>Partner Stretches</h3>
-            </a>
+                <a href="/partner-stretches" class="activity-card card-blue">
+                    <img src="images/partner-stretches.jpg" alt="Partner Stretches indoors" />
+                    <h3>Partner Stretches</h3>
+                </a>
 
-            <!--<a href="/flying-therapeutics" class="activity-card card-tan">
-                <img src="images/flying-therapeutics.JPG" alt="Flying Therapeutics pose" />
-                <h3>Flying Therapeutics</h3>
-            </a>-->
+                <!--<a href="/flying-therapeutics" class="activity-card card-tan">
+                    <img src="images/flying-therapeutics.JPG" alt="Flying Therapeutics pose" />
+                    <h3>Flying Therapeutics</h3>
+                </a>-->
 
-        </div>
-    </div>
-</section>
-
-    <section class="founder">
-        <div class="founder-photo">
-            <img src="images/tonda.jpg" alt="Tonda, founder of Partner Moves" />
-        </div>
-        <div class="founder-bio">
-            <h2>Meet Tonda!</h2>
-            <h3>Founder of Partner Moves</h3>
-            <p><i>[Insert bio]</i></p>
-            <a href="/about-tonda" class="cta">Read More</a>
+            </div>
         </div>
     </section>
 
+    <section class="founder">
+        <div class="founder-row">
+
+            <!-- LEFT: photo box -->
+            <div class="founder-box founder-left">
+            <img src="images/tonda.jpg" alt="Founder photo of Tonda">
+            </div>
+
+            <!-- RIGHT: text box -->
+            <div class="founder-box founder-right">
+            <div class="founder-right-inner">
+                <h2>Meet Tonda!</h2>
+                <h3>Founder of Partner Moves</h3>
+                <p>
+                [Insert bio]
+                </p>
+                <a href="#about-tonda" class="cta secondary">Read More</a>
+            </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-content">
