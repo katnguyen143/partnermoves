@@ -483,7 +483,7 @@ main {
 /* keep your existing subheading color helpers */
 .about-subheading {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 2.4rem;
+  font-size: 3rem;
   margin-bottom: 0.4rem;
   text-shadow: 2px 2px 0 var(--ink);
 }
@@ -492,11 +492,24 @@ main {
 .about-subheading-blue   { color: var(--blue); }
 .about-subheading-yellow { color: var(--yellow); }
 
+.about-doodle-wrapper{
+  display: flex;
+  justify-content: center;
+  margin: -1rem 0;          /* vertical spacing between rows */
+  pointer-events: none;
+}
+
+.about-doodle{
+  width: clamp(200px, 35vw, 420px); /* responsive horizontal doodle */
+  height: auto;
+  opacity: 0.8;
+}
+
 .tutorial-button {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: var(--blue);
+  background: var(--red);
   color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
@@ -814,48 +827,58 @@ main {
 
 .founder {
   max-width: 1400px;        /* same as .hero */
+  margin: 0 auto;
   padding: 0 2rem;          /* same side padding */
+  padding-bottom: 5rem;
 }
 
 .founder-row {
   display: flex;
-  gap: 2rem;
-  align-items: stretch;      /* same height boxes */
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
 }
 
 /* shared card style (same as .hero-box) */
 .founder-box {
-  flex: 1;
   border-radius: 22px;
-  box-shadow: 0px 14px 30px rgba(0,0,0,0.12);
   overflow: hidden;
 }
 
 /* LEFT: photo panel (same dimensions as hero-right) */
 .founder-left {
-  background: var(--blue);    /* or var(--blue) if you prefer */
-  padding: 1.2rem;
+  background: var(--blue); 
+  flex: 0 0 420px;
+  padding: 1.25rem;
+  border-radius: 28px;
   display: flex;
+  max-width: 440px;
+  justify-content: center;
+  align-items: center;
 }
 
 .founder-left img {
   width: 100%;
+  max-width: 420px;
+  justify-content: center;
+  align-items: center;
   height: auto;
-  border-radius: 14px;
+  border-radius: 22px;
   object-fit: cover;
 }
 
 /* RIGHT: text panel (similar to hero-left) */
 .founder-right {
-  background: var(--paper);
   padding: 3rem 3rem 3.5rem;
+  flex: 1;
   display: flex;
   align-items: center;       /* vertically center text */
 }
 
 .founder-right-inner {
-  max-width: 580px;          /* match hero-left-inner width */
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0;
   text-align: left;
   display: flex;
   flex-direction: column;
