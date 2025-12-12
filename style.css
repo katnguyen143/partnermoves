@@ -101,51 +101,6 @@ header .nav-links a {
     cursor: pointer;
   }
   
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-    }
-  
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      background: #fffdf9;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 220px;
-      border: 3px solid #4B4456;
-      box-shadow: 4px 4px 0 #4B4456;
-      padding: 1rem;
-      z-index: 9999;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
-    }
-  
-    .nav-links.active {
-      display: flex;
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  
-    .nav-links a {
-      color: var(--ink);
-      background: var(--red);
-      box-shadow: 2px 2px 0 var(--ink);
-      margin-bottom: 0.5rem;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-    }
-  }
-
 /* Logo container (no font-size here!) */
 .logo {
   display: flex;
@@ -254,43 +209,6 @@ header .nav-links a {
   object-fit: cover;
 }
 
-
-/* ===========================
-   MOBILE LAYOUT
-=========================== */
-
-@media (max-width: 900px) {
-  .hero-row {
-    flex-direction: column;
-  }
-
-  .hero-left {
-    padding: 2rem 1.5rem 2.5rem;
-  }
-
-  .hero-left h1 {
-    font-size: 2.4rem;
-    text-align: left;
-  }
-
-  .hero-left p {
-    font-size: 1rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-right {
-    padding: 0.8rem;
-  }
-
-  .hero-right img {
-    border-radius: 12px;
-  }
-}
-
 /* Section spacing */
 section {
   position: relative;
@@ -352,22 +270,6 @@ section {
 .splash-top-left {
   top: -55px;
   left: -15px;
-}
-
-@media (max-width: 600px) {
-  .corner-splash {
-    width: min(120px, 30vw);
-  }
-
-  .splash-top-right {
-    top: -10px;
-    right: -4px;
-  }
-
-  .splash-top-left {
-    top: -10px;
-    left: -4px;
-  }
 }
 
 main {
@@ -530,31 +432,6 @@ main {
   box-shadow: 5px 5px 0 var(--ink);
 }
 
-/* existing tutorial button styles can stay as you already have */
-
-/* --- Mobile stacking --- */
-@media (max-width: 900px) {
-  .about-section {
-    margin: 2.5rem auto;
-    padding: 0 1.5rem;
-  }
-
-  .about-row,
-  .about-row.reverse {
-    flex-direction: column;
-  }
-
-  .about-img-box {
-    flex: 0 0 auto;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  .about-text-box {
-    padding: 2rem 1.6rem 2.4rem;
-  }
-}
-
 /* === Comic Collage Grid === */
 .comic-collage {
   display: grid;
@@ -625,16 +502,6 @@ main {
   margin-left: 0;
   margin-right: auto;
   padding-left: 0.5rem; /* tiny nudge to match your layout rhythm */
-}
-
-  @media (max-width: 600px) {
-  .smile {
-    top: -10px;       /* lower so it doesn't get cut off */
-    left: 10px;       /* nudge inward */
-    width: 120px;     /* scale proportionally */
-    transform: rotate(-3deg);
-    z-index: 10;      /* always above the section-box */
-  }
 }
   
   /* Staggered, comic-style tilts */
@@ -915,21 +782,6 @@ main {
   margin-top: 0.5rem;
 }
 
-/* MOBILE: stack like hero */
-@media (max-width: 768px) {
-  .founder-row {
-    flex-direction: column;
-  }
-
-  .founder {
-    margin: 2.5rem auto;
-    padding: 0 1.5rem;
-  }
-
-  .founder-right {
-    padding: 2.2rem 1.8rem 2.5rem;
-  }
-}
 
 .site-footer {
   background: var(--blue);
@@ -1011,86 +863,225 @@ main {
   margin-top: 1rem;
 }
 
-/* ================================
-   📱 MOBILE
-   ================================ */
+
+/* =========================
+   RESPONSIVE — CLEAN SYSTEM
+   Delete ALL other @media blocks and keep only these
+   ========================= */
+
+/* Tablet + Mobile (stack layouts, keep same section padding system) */
+@media (max-width: 900px) {
+
+  /* ---- HEADER / NAV ---- */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fffdf9;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    border: 3px solid #4B4456;
+    box-shadow: 4px 4px 0 #4B4456;
+    padding: 1rem;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    background: var(--red);
+    box-shadow: 2px 2px 0 var(--ink);
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+
+  /* ---- HERO STACKING ---- */
+  .hero-row { flex-direction: column; }
+
+  .hero-left { padding: 2rem 1.5rem 2.5rem; }
+
+  .hero-left h1 {
+    font-size: 2.4rem;
+    text-align: left;
+  }
+
+  .hero-left p { font-size: 1rem; }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-right { padding: 0.8rem; }
+  .hero-right img { border-radius: 12px; }
+
+  /* ---- ABOUT STACKING (NO section padding/margin overrides here) ---- */
+  .about-row,
+  .about-row.reverse {
+    flex-direction: column;
+  }
+
+  .about-img-box {
+    flex: 0 0 auto;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-text-box {
+    padding: 2rem 1.6rem 2.4rem;
+  }
+
+  /* ---- FOUNDER STACKING (keep founder as a normal section container) ---- */
+  .founder-row { flex-direction: column; max-width: 100%; }
+  .founder-right { padding: 2.2rem 1.8rem 2.5rem; }
+
+  .founder-left {
+    flex: 0 0 auto;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .founder-left img {
+    max-width: 100%;
+  }
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
 
-  /* ---- SECTION BOXES ---- */
+  /* ---- GLOBAL SECTION RHYTHM ---- */
+  .hero,
+  .about-section,
+  .brand-summary,
+  .brand-values,
+  .offerings,
+  .comic-section,
+  .founder {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin: 2rem auto;
+    max-width: 1400px;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* ---- SECTION BOX ---- */
   .section-box {
-    margin: 1.5rem auto;
-    padding: 1.2rem 1.2rem 2rem;
-    border-radius: 22px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* reduce gap before values grid */
-  .brand-values .section-box {
-    margin-top: 0.8rem;
-  }
+  .brand-values .section-box { margin-top: 0.8rem; }
 
-  /* ---- SECTION HEADERS ---- */
-  h1, h2, h3 {
-    font-size: 2.2rem !important;
-  }
+  /* ---- TYPOGRAPHY (target big headings, avoid global h1/h2/h3 overrides) ---- */
+  .hero-left h1 { font-size: 2.4rem; text-align: left; }
+  .hero-left p  { font-size: 1rem; }
 
   .brand-summary h3,
   .brand-values h3,
-  .offerings h2 {
-    font-size: 2.6rem !important;
+  .offerings h2,
+  .section-title,
+  .about-subheading {
+    font-size: 2.6rem;
     text-shadow: 1px 1px 0 var(--ink);
   }
 
-  /* ---- VALUE CARDS ---- */
-  .value-card {
-    padding: 1rem;
-    max-width: 100%;
-    flex: 1 1 100%;
+  /* ---- CORNER SPLASHES ---- */
+  .corner-splash { width: min(120px, 30vw); }
+  .splash-top-right { top: -10px; right: -4px; }
+  .splash-top-left  { top: -10px; left: -4px; }
+
+  /* ---- SMILE DOODLE ---- */
+  .smile {
+    top: -10px;
+    left: 10px;
+    width: 120px;
+    transform: rotate(-3deg);
+    z-index: 10;
   }
 
+  /* ---- HERO (stacking polish) ---- */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* ---- ABOUT DOODLE BETWEEN ROWS ---- */
+  .about-doodle-wrapper { margin: 0.5rem 0; }
+  .about-doodle { width: min(320px, 80vw); opacity: 0.65; }
+
+  /* ---- VALUES: FORCE TRUE CENTERED COLUMN (fixes “leaning right”) ---- */
   .value-grid {
+    display: grid;                               /* override flex behavior */
+    grid-template-columns: min(420px, 100%);     /* 1 centered column */
+    justify-content: center;                     /* center the column */
+    width: 100%;
+    margin: 0 auto;
     gap: 1rem;
-    margin-top: 1.5rem;
   }
 
-  /* ---- COMIC COLLAGE ---- */
-  .comic-collage {
+  .value-card {
+    width: 100%;
+    max-width: 100%;
     padding: 1rem;
-    gap: 0.8rem;
-    margin-top: 2rem;
+    margin: 0;
   }
 
-  /* ---- OFFERINGS ---- */
+  /* ---- OFFERINGS: FORCE TRUE CENTERED COLUMN (fixes “leaning right”) ---- */
   .activity-grid {
+    display: grid;
+    grid-template-columns: min(420px, 100%);
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
     gap: 1rem;
   }
 
-  .activity-card h3 {
-    font-size: 1rem !important; 
-    margin: 0.7rem 0.6rem;
+  .activity-card {
+    width: 100%;
+    max-width: 100%;
   }
 
-  .activity-card img {
-    height: 160px;
-  }
+  .activity-card img { height: 160px; }
+  .activity-card h3  { font-size: 1rem; margin: 0.7rem 0.6rem; }
 
-  .founder {
-    max-width: 80%;        /* make the white box narrower */
-    padding: 1.2rem 1.2rem;  /* side padding for breathing room */
-    border-radius: 14px;
-    background: #fffdf9;
-  }
+  /* ---- FOUNDER (keep consistent; do NOT shrink section width) ---- */
+  .founder-row { max-width: 100%; }
+  .founder-left { width: 100%; max-width: 520px; }
+  .founder-left img { max-width: 100%; }
+  .founder-right { padding: 1.8rem 1.4rem 2.2rem; }
 
   /* ---- FOOTER ---- */
-  .site-footer {
-    padding: 2rem 1.5rem;
-  }
+  .site-footer { padding: 2rem 1.5rem; }
 
-  .footer-nav {
-    gap: 0.7rem;
-  }
-
-  .footer-nav a {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.9rem;
-  }
+  .footer-nav { gap: 0.7rem; }
+  .footer-nav a { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
 }
