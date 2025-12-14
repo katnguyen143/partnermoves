@@ -322,7 +322,7 @@ main {
 .about-row {
   display: flex;
   gap: 2rem;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
 }
 
