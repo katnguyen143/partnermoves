@@ -60,7 +60,7 @@ header {
     color: #fff;
     text-shadow: 2px 2px 0 var(--ink);
     position: sticky;
-    height: 70px;
+    height: 100px;
     top: 0;
     z-index: 1000; /* stays above everything */
   }
