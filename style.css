@@ -160,13 +160,12 @@ header .nav-links a {
   display: flex;
   align-items: center; /* centers content vertically */
   position: relative;
-  margin-top: 1.8rem;
 }
 
 .hero-left .corner-splash.splash-top-left{
   position: absolute;
-  top: -36px;
-  left: -18px;
+  top: -50px;
+  left: -55px;
   z-index: 10;
 }
 
@@ -920,9 +919,6 @@ main {
   }
 
   /* ---- HERO STACKING ---- */
-  .hero {
-    margin-top: 1rem !important;
-  }
 
   .hero-row { flex-direction: column; }
 
@@ -1027,6 +1023,10 @@ main {
   .brand-values .section-box { margin-top: 0.8rem; }
 
   /* ---- TYPOGRAPHY (target big headings, avoid global h1/h2/h3 overrides) ---- */
+  .hero {
+    margin-top: 1rem !important;
+  }
+  
   .hero-left p  { font-size: 1rem; }
 
   .brand-summary h3,
