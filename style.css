@@ -7,7 +7,6 @@
   --ink:   #2A2A2A;  
   --radius-lg: 22px;
   --radius-md: 16px;
-
   --section-gap: 3rem;
 }
 
@@ -20,15 +19,15 @@
 .comic-section,
 .founder {
   max-width: 1400px;
-  padding: 0 2rem;                 /* consistent side padding */
-  margin: var(--section-gap) auto; /* consistent top/bottom gap */
+  padding: 0 2rem;
+  margin: var(--section-gap) auto;
   position: relative;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&display=swap');
 
 body {
-  background: var(--tan); /* solid base color */
+  background: var(--tan);
   color: var(--ink);
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -60,12 +59,11 @@ header {
     color: #fff;
     text-shadow: 2px 2px 0 var(--ink);
     position: sticky;
-    height: 100px;
+    height: 70px;
     top: 0;
-    z-index: 1000; /* stays above everything */
+    z-index: 1000;
   }
   
-  /* Nav links (desktop) */
   .nav-links {
     display: flex;
     gap: 1rem;
@@ -74,7 +72,6 @@ header {
 header .nav-links a {
     text-decoration: none;
     background: var(--blue);
-    /*border: 3px solid var(--ink);*/
     color: #fff;
     font-weight: 600;
     font-size: 1.2rem;
@@ -91,7 +88,6 @@ header .nav-links a {
     color: var(--paper);
   }
   
-  /* ====== MOBILE MENU ====== */
   .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -101,14 +97,12 @@ header .nav-links a {
     cursor: pointer;
   }
   
-/* Logo container (no font-size here!) */
 .logo {
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
 
-/* Logo text styling */
 .logo-text {
   font-family: 'Luckiest Guy', cursive;
   font-size: 2rem;
@@ -116,7 +110,6 @@ header .nav-links a {
   margin-top: 10px;
 }
 
-/* Icon */
 .logo-icon {
   height: 50px;
   width: 50px;
@@ -128,7 +121,7 @@ header .nav-links a {
 }
 
 /* ===========================
-   HERO SECTION — RESTORED STYLE
+   HERO SECTION
    =========================== */
 
 .hero {
@@ -139,10 +132,9 @@ header .nav-links a {
 .hero-row {
   display: flex;
   gap: 2rem;
-  align-items: stretch; /* same height boxes */
+  align-items: stretch;
 }
 
-/* Shared styling for both panels */
 .hero-box {
   flex: 1;
   border-radius: 22px;
@@ -150,15 +142,12 @@ header .nav-links a {
   overflow: visible;
 }
 
-/* -------------------
-   LEFT (BLUE) PANEL
--------------------- */
 .hero-left {
   background: var(--blue);
   color: #fff;
   padding: 3rem 3rem 3.5rem;
   display: flex;
-  align-items: center; /* centers content vertically */
+  align-items: center;
   position: relative;
 }
 
@@ -169,7 +158,6 @@ header .nav-links a {
   z-index: 10;
 }
 
-/* Center all text + buttons horizontally inside the left panel */
 .hero-left-inner {
   max-width: 580px;
   margin: 0 auto;
@@ -200,13 +188,9 @@ header .nav-links a {
   justify-content: center;
 }
 
-/* -------------------
-   RIGHT PHOTO PANEL
--------------------- */
-
 .hero-right {
   background: var(--red);
-  padding: 1.2rem; /* thickness of the frame */
+  padding: 1.2rem;
   display: flex;
 }
 
@@ -217,26 +201,19 @@ header .nav-links a {
   object-fit: cover;
 }
 
-/* Section spacing */
 section {
   position: relative;
   z-index: 1;
 }
 
 .section-box {
-  /*background: var(--paper);*/
   border-radius: var(--radius-lg);
   padding: 2rem 2rem 2.5rem;
   text-align: center;
   padding-top: 0rem;
-
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;  /* no extra vertical gap here */
-
-  /*box-shadow:
-    0 10px 25px rgba(0,0,0,0.08),
-    0 2px 8px rgba(0,0,0,0.05);*/
+  margin: 0 auto;
 }
 
 .section-box--flat {
@@ -246,11 +223,11 @@ section {
   border-radius: 0 !important;
 }
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 .activity-card,
 .value-card,
@@ -261,8 +238,6 @@ section {
   border-radius: var(--radius-md);
 }
 
-
-/* =============== COMIC CORNER SPLASHES =============== */
 .corner-splash {
   position: absolute;
   z-index: 3;
@@ -300,17 +275,17 @@ main {
     font-weight: 700;
 }
 
-    .cta.secondary {
-        background: var(--blue);
-    }
+.cta.secondary {
+    background: var(--blue);
+}
 
-    .cta:hover {
-      background: var(--yellow);
-      color: var(--paper);
-    }
+.cta:hover {
+  background: var(--yellow);
+  color: var(--paper);
+}
     
 /* ============================
-   ABOUT SECTION — BOXED ROWS
+   ABOUT SECTION
    ============================ */
 
 .about-section {
@@ -334,18 +309,15 @@ main {
   width: 100%;
 }
 
-/* flip for image on the right */
 .about-row.reverse {
   flex-direction: row-reverse;
 }
 
-/* shared card styling (like hero/founder) */
 .about-box {
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-/* image side: fixed-ish width, square image inside */
 .about-img-box {
   flex: 0 0 360px;   
   display: flex;
@@ -354,7 +326,6 @@ main {
   padding: 1.2rem;
 }
 
-/* color frames for each row */
 .about-img-red {
   background: var(--yellow);
 }
@@ -363,23 +334,20 @@ main {
   background: var(--blue);
 }
 
-/* make the actual image a perfect square */
 .about-img-box img {
   width: 100%;
   max-width: 360px;
-  aspect-ratio: 1 / 1;    /* perfect square */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 14px;
 }
 
-/* text side: longer rectangle */
 .about-text-box {
   flex: 1;
-  /*background: var(--paper);*/
   padding: 3rem 3rem 3.5rem;
   font-size: 1.2rem;
   display: flex;
-  align-items: center;    /* vertical centering */
+  align-items: center;
 }
 
 .about-text-inner {
@@ -390,7 +358,6 @@ main {
   gap: 1rem;
 }
 
-/* keep your existing subheading color helpers */
 .about-subheading {
   font-family: 'Luckiest Guy', cursive;
   font-size: 3rem;
@@ -405,12 +372,12 @@ main {
 .about-doodle-wrapper{
   display: flex;
   justify-content: center;
-  margin: -1rem 0;          /* vertical spacing between rows */
+  margin: -1rem 0;
   pointer-events: none;
 }
 
 .about-doodle{
-  width: clamp(200px, 35vw, 420px); /* responsive horizontal doodle */
+  width: clamp(200px, 35vw, 420px);
   height: auto;
   opacity: 0.8;
 }
@@ -429,7 +396,7 @@ main {
   text-decoration: none;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   width: auto;
-  align-self: flex-start;   /* <-- prevents stretching */
+  align-self: flex-start;
   display: inline-block; 
 }
 
@@ -440,20 +407,18 @@ main {
   box-shadow: 5px 5px 0 var(--ink);
 }
 
-/* === Comic Collage Grid === */
 .comic-collage {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
-  padding: 0;              /* remove the yellow padding box */
-  background: none;        /* remove colored background */
+  padding: 0;
+  background: none;
   border-radius: 0;
   box-shadow: none;
   position: relative;
 }
 
-/* Soft dots behind the collage (inside the section-box instead) */
 .section-box .comic-collage::before {
   content: "";
   position: absolute;
@@ -502,37 +467,34 @@ main {
     transform: rotate(-4deg);
     pointer-events: none;
     z-index: 5;
-  }
+}
 
 .comic-section .section-title {
   text-align: left;
   display: block;
   margin-left: 0;
   margin-right: auto;
-  padding-left: 0.5rem; /* tiny nudge to match your layout rhythm */
+  padding-left: 0.5rem;
 }
   
-  /* Staggered, comic-style tilts */
-  .collage-item:nth-child(odd) {
-    transform: rotate(-2deg);
-  }
-  .collage-item:nth-child(even) {
-    transform: rotate(2deg);
-  }
-  
-  /* Emphasize hover */
-  .collage-item:hover {
-    transform: rotate(0deg) scale(1.05);
-    z-index: 2;
-  }
-  
-  /* Masonry-style shape adjustments */
-  .collage-item.tall {
-    grid-row: span 2;
-  }
-  .collage-item.wide {
-    grid-column: span 2;
-  }
+.collage-item:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+.collage-item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.collage-item:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 2;
+}
+
+.collage-item.tall {
+  grid-row: span 2;
+}
+.collage-item.wide {
+  grid-column: span 2;
+}
 
 .brand-summary, .brand-values {
     padding: 1rem 2rem 1rem;
@@ -546,37 +508,37 @@ main {
   margin-top: 0.5rem;
 }
 
-    .brand-summary h3, .brand-values h3 {
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 4rem;
-        color: var(--yellow);
-        text-shadow: 2px 2px 0 #000;
-        display: inline-block;
-        border: none;
-        box-shadow: none;
-        background: none;
-        position: relative;
-        padding: 0.2rem 0.5rem;
-        letter-spacing: 1px;
-        border-radius: 10px;
-        position: relative;
-        z-index: 2;
-    }
+.brand-summary h3, .brand-values h3 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 4rem;
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 #000;
+    display: inline-block;
+    border: none;
+    box-shadow: none;
+    background: none;
+    position: relative;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
 
-    .brand-values h2 {
-        font-size: 4rem;
-        margin-bottom: 0.3rem;
-    }
+.brand-values h2 {
+    font-size: 4rem;
+    margin-bottom: 0.3rem;
+}
 
-    .brand-summary p {
-        max-width: 700px;
-        margin: 0 auto 1rem;
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
+.brand-summary p {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
   
 .brand-values .section-box {
-  position: relative; /* required for absolute positioning */
+  position: relative;
 }
 
 .value-grid {
@@ -585,12 +547,12 @@ main {
   align-items: stretch;
   gap: 1.5rem;
   margin-top: 2rem;
-  flex-wrap: wrap; /* allows responsive stacking */
+  flex-wrap: wrap;
 }
 
 .value-card {
-  flex: 1 1 240px;  /* responsive width */
-  max-width: 320px; /* keeps them from blowing up */
+  flex: 1 1 240px;
+  max-width: 320px;
   background: var(--paper);
   padding: 1.25rem 1.5rem;
   border-radius: 16px;
@@ -605,22 +567,19 @@ main {
   margin-bottom: 0.25rem;
 }
 
-/* Red Card */
 .value-card.value-red {
   background: var(--red);
-  color: #fff; /* white text for contrast */
+  color: #fff;
 }
 
-/* Blue Card */
 .value-card.value-blue {
   background: var(--blue);
-  color: #fff; /* white text for contrast */
+  color: #fff;
 }
 
-/* Yellow Card */
 .value-card.value-yellow {
   background: var(--yellow);
-  color: var(--ink); /* dark text for readability */
+  color: var(--ink);
 }
 
 .offerings {
@@ -628,23 +587,22 @@ main {
     text-align: center;
 }
 
-    .offerings h2 {
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 4rem;
-        color: var(--blue);
-        text-shadow: 2px 2px 0 #000;
-        display: inline-block;
-        border: none;
-        box-shadow: none;
-        background: none;
-        position: relative;
-        letter-spacing: 1px;
-        margin-bottom: 3rem;
-        border-radius: 10px;
-        position: relative;
-        z-index: 2;
-    }
-
+.offerings h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 4rem;
+    color: var(--blue);
+    text-shadow: 2px 2px 0 #000;
+    display: inline-block;
+    border: none;
+    box-shadow: none;
+    background: none;
+    position: relative;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
 
 .activity-grid {
     display: grid;
@@ -668,18 +626,18 @@ main {
   transform: scale(1.03);
 }
 
-    .activity-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+.activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
-    .activity-card h3 {
-      margin: 1rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: inherit;     /* automatically matches card text color */
-    }
+.activity-card h3 {
+  margin: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: inherit;
+}
 
 .card-red {
   background: var(--red);
@@ -697,13 +655,13 @@ main {
 }
 
 /* ===========================
-   FOUNDER SECTION — MATCH HERO
+   FOUNDER SECTION
    =========================== */
 
 .founder {
-  max-width: 1400px;        /* same as .hero */
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;          /* same side padding */
+  padding: 0 2rem;
   padding-bottom: 5rem;
 }
 
@@ -715,13 +673,11 @@ main {
   align-items: center;
 }
 
-/* shared card style (same as .hero-box) */
 .founder-box {
   border-radius: 22px;
   overflow: hidden;
 }
 
-/* LEFT: photo panel (same dimensions as hero-right) */
 .founder-left {
   background: var(--blue); 
   flex: 0 0 420px;
@@ -743,12 +699,11 @@ main {
   object-fit: cover;
 }
 
-/* RIGHT: text panel (similar to hero-left) */
 .founder-right {
   padding: 3rem 3rem 3.5rem;
   flex: 1;
   display: flex;
-  align-items: center;       /* vertically center text */
+  align-items: center;
 }
 
 .founder-right-inner {
@@ -784,12 +739,10 @@ main {
   line-height: 1.7;
 }
 
-/* optional CTA in the founder box */
 .founder-right .cta {
   align-self: flex-start;
   margin-top: 0.5rem;
 }
-
 
 .site-footer {
   background: var(--blue);
@@ -801,19 +754,17 @@ main {
   color: var(--paper);
 }
 
-/* Add a subtle halftone dot overlay */
 .site-footer::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
-  background-size: 8px 8px; /* smaller dots look more printed */
+  background-size: 8px 8px;
   opacity: 0.2;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Add a faint paper grain texture overlay */
 .site-footer::before {
   content: "";
   position: absolute;
@@ -826,13 +777,10 @@ main {
   z-index: 0;
 }
 
-/* Footer inner content stays above overlays */
 .footer-content, .footer-nav, .footer-note {
   position: relative;
   z-index: 2;
 }
-
-/* Navigation buttons */
 
 .footer-nav a {
   text-decoration: none;
@@ -854,8 +802,6 @@ main {
   box-shadow: 5px 5px 0 var(--ink), 0 0 10px rgba(255, 216, 77, 0.5);
 }
 
-
-/* Footer note */
 .footer-note {
   font-size: 0.85rem;
   color: var(--paper);
@@ -866,35 +812,238 @@ main {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;    /* spacing between buttons */
+  gap: 1.5rem;
   flex-wrap: wrap;
   margin-top: 1rem;
 }
 
-
-/* Tablet + Mobile (stack layouts, keep same section padding system) */
+/* =========================
+   TABLET (601px - 900px)
+   ========================= */
 @media (max-width: 900px) {
+  
+  /* Adjust section spacing */
+  .hero,
+  .about-section,
+  .brand-summary,
+  .brand-values,
+  .offerings,
+  .comic-section,
+  .founder {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin: 2.5rem auto;
+  }
 
-  /* ---- HEADER / NAV ---- */
-  .menu-toggle {
+  /* Header adjustments */
+  header {
+    height: 80px;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.6rem;
+  }
+
+  .logo-icon {
+    height: 42px;
+    width: 42px;
+  }
+
+  header .nav-links a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  /* Hero section - stack but keep spacious */
+  .hero-row {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .hero-left {
+    padding: 2.5rem 2rem;
+  }
+
+  .hero-left h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero-left p {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-buttons .cta {
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 160px;
+  }
+
+  /* About section - stack */
+  .about-row,
+  .about-row.reverse {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-img-box {
+    flex: 0 0 auto;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-text-box {
+    padding: 2rem 1.75rem;
+  }
+
+  .about-subheading {
+    font-size: 2.6rem;
+  }
+
+  .about-doodle {
+    width: min(350px, 70vw);
+  }
+
+  /* Headings */
+  .section-title,
+  .brand-summary h3,
+  .brand-values h3,
+  .offerings h2 {
+    font-size: 3.2rem;
+  }
+
+  /* Values - 2 columns */
+  .value-grid {
+    gap: 1.25rem;
+  }
+
+  .value-card {
+    flex: 1 1 calc(50% - 0.625rem);
+    max-width: 400px;
+  }
+
+  /* Activities - 2 columns */
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Collage - 2 columns */
+  .comic-collage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .collage-item.wide {
+    grid-column: span 1;
+  }
+
+  .collage-item.tall {
+    grid-row: span 1;
+  }
+
+  /* Founder - stack */
+  .founder-row {
+    flex-direction: column;
+  }
+
+  .founder-left {
+    flex: 0 0 auto;
+    max-width: 480px;
+    width: 100%;
+  }
+
+  .founder-right {
+    padding: 2.25rem 1.75rem;
+  }
+
+  .founder-right h2 {
+    font-size: 2.6rem;
+  }
+
+  .founder-right h3 {
+    font-size: 1.85rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+  }
+
+  .footer-nav a {
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Corner splashes - slightly smaller */
+  .corner-splash {
+    width: min(180px, 24vw);
+  }
+
+  .splash-top-right {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* =========================
+   MOBILE (≤ 600px)
+   ========================= */
+@media (max-width: 600px) {
+
+  /* Global section rhythm */
+  .hero,
+  .about-section,
+  .brand-summary,
+  .brand-values,
+  .offerings,
+  .comic-section,
+  .founder {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 1.75rem auto;
+  }
+
+  /* Header / nav */
+  header {
+    height: 70px;
+    padding: 0.75rem 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.35rem;
+  }
+
+  .logo-icon {
+    height: 36px;
+    width: 36px;
+  }
+
+  .menu-toggle { 
     display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
+    font-size: 1.75rem;
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
-    background: #fffdf9;
+    background: var(--paper);
     position: absolute;
     top: 100%;
     right: 0;
-    width: 220px;
-    border: 3px solid #4B4456;
-    box-shadow: 4px 4px 0 #4B4456;
+    width: 200px;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
     padding: 1rem;
     z-index: 9999;
     opacity: 0;
@@ -909,203 +1058,416 @@ main {
   }
 
   .nav-links a {
-    color: var(--ink);
+    color: #fff;
     background: var(--red);
     box-shadow: 2px 2px 0 var(--ink);
     margin-bottom: 0.5rem;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
     border-radius: 6px;
+    font-size: 1rem;
   }
 
-  /* ---- HERO STACKING ---- */
-
-  .hero-row { flex-direction: column; }
-
-  .hero-left { 
-    padding: 2rem 1.5rem 2.5rem; 
-    align-items: flex-start;
+  /* Hero: stack + better spacing */
+  .hero-row { 
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .hero-left-inner { padding-top: 2rem; }
+  .hero-left {
+    padding: 1.75rem 1.25rem;
+  }
 
-  .hero-left h1{
-    font-size: 2.5rem;
-    line-height: 1.05;
-    letter-spacing: 0.5px;
+  .hero-left-inner {
+    padding-top: 2.25rem;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+    line-height: 1.1;
     margin: 0 0 1rem;
-    text-align: center;
   }
 
-  .hero-left p{
-    font-size: 1.05rem;
-    line-height: 1.55;
-    margin-bottom: 1.6rem;
+  .hero-left p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 1.5rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 0.9rem;
+    align-items: center;
+    width: 100%;
+    gap: 0.75rem;
   }
 
-  .hero-buttons .cta{
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
+  .hero-buttons .cta {
+    margin: 0;
+    width: auto;
+    min-width: 200px;
+    max-width: 280px;
     text-align: center;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.5rem;
   }
 
-  .hero-right { padding: 0.8rem; }
-  .hero-right img { border-radius: 12px; }
-
-  /* ---- ABOUT STACKING (NO section padding/margin overrides here) ---- */
-  .about-row,
-  .about-row.reverse {
-    flex-direction: column;
+  .hero-right { 
+    padding: 0.8rem;
   }
 
-  .about-img-box {
-    flex: 0 0 auto;
-    max-width: 420px;
-    margin: 0 auto;
+  .hero-right img {
+    border-radius: 12px;
   }
 
-  .about-text-box {
-    padding: 2rem 1.6rem 2.4rem;
+  /* Hero sticker */
+  .hero-left .corner-splash.splash-top-left {
+    width: min(110px, 28vw);
+    top: -25px;
+    left: -15px;
   }
 
-  .founder-row { flex-direction: column; max-width: 100%; }
-  .founder-right { padding: 2.2rem 1.8rem 2.5rem; }
-
-  .founder-left {
-    flex: 0 0 auto;
-    max-width: 520px;
-    width: 100%;
-  }
-
-  .founder-left img {
-    max-width: 100%;
-  }
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-@media (max-width: 600px) {
-
-  /* ---- GLOBAL SECTION RHYTHM ---- */
-  .hero,
-  .about-section,
-  .brand-summary,
-  .brand-values,
-  .offerings,
-  .comic-section,
-  .founder {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    margin: 2rem auto;
-    max-width: 1400px;
-  }
-
-  html, body {
-    overflow-x: hidden;
-  }
-
-  /* ---- SECTION BOX ---- */
+  /* Section boxes */
   .section-box {
-    width: 100%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 1rem 1rem 1.5rem;
   }
 
-  .brand-values .section-box { margin-top: 0.8rem; }
-
-  /* ---- TYPOGRAPHY (target big headings, avoid global h1/h2/h3 overrides) ---- */
-  .hero {
-    margin-top: 1rem !important;
-  }
-  
-  .hero-left p  { font-size: 1rem; }
-
+  /* Headings */
   .brand-summary h3,
   .brand-values h3,
   .offerings h2,
-  .section-title,
-  .about-subheading {
-    font-size: 2.6rem;
-    text-shadow: 1px 1px 0 var(--ink);
+  .section-title {
+    font-size: 2.2rem;
+    text-shadow: 1.5px 1.5px 0 var(--ink);
   }
 
-  /* ---- CORNER SPLASHES ---- */
-  .corner-splash { width: min(120px, 30vw); }
-  .splash-top-right { top: -10px; right: -4px; }
-  .splash-top-left  { top: -10px; left: -4px; }
+  .section-title {
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
 
-  /* ---- SMILE DOODLE ---- */
-  .smile {
-    top: -10px;
-    left: 10px;
-    width: 120px;
-    transform: rotate(-3deg);
+  /* About section - graphics as stickers */
+  .about-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .about-row,
+  .about-row.reverse { 
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  /* First sticker - aligned with header */
+  .about-img-box {
+    position: absolute;
+    top: 1rem;
+    right: 10px;
+    max-width: 90px;
+    width: 90px;
+    padding: 0;
+    background: none !important;
     z-index: 10;
+    transform: rotate(-8deg);
   }
 
-  /* ---- HERO (stacking polish) ---- */
-  .hero-buttons {
+  /* Second sticker - next to button */
+  .about-row.reverse .about-img-box {
+    position: static;
+    transform: rotate(8deg);
+    right: auto;
+    left: auto;
+    top: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .about-row.reverse .about-text-inner {
+    display: flex;
     flex-direction: column;
     gap: 1rem;
   }
 
-  /* ---- ABOUT DOODLE BETWEEN ROWS ---- */
-  .about-doodle-wrapper { margin: 0.5rem 0; }
-  .about-doodle { width: min(320px, 80vw); opacity: 0.65; }
+  .tutorial-button {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-  /* ---- VALUES: FORCE TRUE CENTERED COLUMN (fixes “leaning right”) ---- */
-  .value-grid {
-    display: grid;                               /* override flex behavior */
-    grid-template-columns: min(420px, 100%);     /* 1 centered column */
-    justify-content: center;                     /* center the column */
+  .about-row.reverse .about-text-inner > :last-child {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .about-img-box img {
+    max-width: 100%;
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .about-row.reverse .about-img-box img {
+    transform: none;
+  }
+
+  .about-text-box {
+    padding: 1rem;
+    font-size: 1.05rem;
+    width: 100%;
+  }
+
+  .about-row.reverse .about-text-box {
+    padding: 1rem;
+  }
+
+  .about-text-inner {
+    max-width: 100%;
+  }
+
+  .about-subheading {
+    font-size: 2rem;
+  }
+
+  .tutorial-button {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .about-doodle-wrapper { 
+    margin: 0.25rem 0;
+  }
+
+  .about-doodle { 
+    width: min(280px, 75vw);
+    opacity: 0.65;
+  }
+
+  /* Values - single column, centered */
+  .brand-values {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand-values .section-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .value-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     gap: 1rem;
+    padding: 0;
   }
 
   .value-card {
     width: 100%;
-    max-width: 100%;
-    padding: 1rem;
-    margin: 0;
+    max-width: 340px;
+    font-size: 1rem;
+    padding: 1.1rem 1.3rem;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
-  /* ---- OFFERINGS: FORCE TRUE CENTERED COLUMN (fixes “leaning right”) ---- */
+  .value-card strong {
+    font-size: 1.3rem;
+  }
+
+  /* Activities - single column, centered */
+  .offerings {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .offerings .section-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .activity-grid {
-    display: grid;
-    grid-template-columns: min(420px, 100%);
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     gap: 1rem;
+    padding: 0;
   }
 
   .activity-card {
     width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .activity-card img { 
+    height: 180px;
+  }
+
+  .activity-card h3 { 
+    font-size: 1.15rem;
+    margin: 0.8rem;
+  }
+
+  /* Collage - single column on very small screens */
+  .comic-collage {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .collage-item.wide,
+  .collage-item.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Reduce rotation effects on mobile */
+  .collage-item:nth-child(odd),
+  .collage-item:nth-child(even) {
+    transform: rotate(-1deg);
+  }
+
+  .collage-item:nth-child(even) {
+    transform: rotate(1deg);
+  }
+
+  /* Corner splashes */
+  .corner-splash { 
+    width: min(110px, 28vw);
+  }
+
+  .splash-top-right { 
+    top: 15px;
+    right: 15px;
+  }
+
+  .splash-top-left { 
+    top: -20px;
+    left: -10px;
+  }
+
+  /* Founder - stack with side padding */
+  .founder {
+    padding-bottom: 3rem;
+  }
+
+  .founder-row { 
+    flex-direction: column;
     max-width: 100%;
   }
 
-  .activity-card img { height: 160px; }
-  .activity-card h3  { font-size: 1rem; margin: 0.7rem 0.6rem; }
+  .founder-left {
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
 
-  /* ---- FOUNDER (keep consistent; do NOT shrink section width) ---- */
-  .founder-row { max-width: 100%; }
-  .founder-left { width: 100%; max-width: 520px; }
-  .founder-left img { max-width: 100%; }
-  .founder-right { padding: 1.8rem 1.4rem 2.2rem; }
+  .founder-left img {
+    padding: 0 1.5rem;
+  }
 
-  /* ---- FOOTER ---- */
-  .site-footer { padding: 2rem 1.5rem; }
+  .founder-right { 
+    padding: 1.75rem 1.25rem;
+  }
 
-  .footer-nav { gap: 0.7rem; }
-  .footer-nav a { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+  .founder-right h2 {
+    font-size: 2.2rem;
+  }
+
+  .founder-right h3 {
+    font-size: 1.6rem;
+  }
+
+  .founder-right p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* Footer */
+  .site-footer { 
+    padding: 2.5rem 1rem;
+  }
+
+  .footer-nav { 
+    gap: 0.75rem;
+  }
+
+  .footer-nav a { 
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-note {
+    font-size: 0.8rem;
+    margin-top: 1.25rem;
+  }
+
+  /* CTA buttons globally */
+  .cta {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    margin: 0.75rem 0.5rem;
+  }
+}
+
+/* =========================
+   EXTRA SMALL (≤ 400px)
+   ========================= */
+@media (max-width: 400px) {
+  
+  .hero-left h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-title,
+  .brand-summary h3,
+  .brand-values h3,
+  .offerings h2 {
+    font-size: 1.9rem;
+  }
+
+  .about-subheading {
+    font-size: 1.8rem;
+  }
+
+  .founder-right h2 {
+    font-size: 2rem;
+  }
+
+  .founder-right h3 {
+    font-size: 1.4rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .activity-card img {
+    height: 160px;
+  }
+
+  .value-card,
+  .about-text-box,
+  .founder-right p {
+    font-size: 0.95rem;
+  }
 }
