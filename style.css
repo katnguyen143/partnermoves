@@ -953,11 +953,24 @@ main {
     flex-direction: column;
   }
 
-  .founder-left {
-    flex: 0 0 auto;
-    max-width: 480px;
-    width: 100%;
-  }
+/* Founder photo on mobile */
+.founder-left {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 100%;
+  padding: 1.25rem 1.75rem; /* side padding so it doesn’t hug the edges */
+  border-radius: 24px;      /* round the blue frame */
+  box-sizing: border-box;
+}
+
+.founder-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 0;               /* remove inner padding that was messing it up */
+  border-radius: 20px;      /* rounded photo corners */
+  object-fit: cover;
+}
 
   .founder-right {
     padding: 2.25rem 1.75rem;
@@ -1043,7 +1056,6 @@ main {
     right: 0;
     width: 200px;
     border: 3px solid var(--ink);
-    /*box-shadow: 4px 4px 0 var(--ink);*/
     padding: 1rem;
     z-index: 9999;
     opacity: 0;
@@ -1145,7 +1157,7 @@ main {
     margin-bottom: 1.5rem;
   }
 
-  /* About section - graphics as stickers */
+    /* About section - graphics as stickers */
   .about-section {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1154,55 +1166,34 @@ main {
   .about-row,
   .about-row.reverse { 
     flex-direction: column;
-    gap: 0;
+    gap: 0.5rem;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;   /* smaller gap between rows */
   }
 
-  /* First sticker - aligned with header */
+  /* First sticker (playful movement) – top-right of first block */
   .about-img-box {
     position: absolute;
-    top: 1rem;
-    right: 10px;
-    max-width: 90px;
-    width: 90px;
+    top: 0.75rem;
+    right: 0.75rem;
+    max-width: 80px;
+    width: 80px;
     padding: 0;
     background: none !important;
     z-index: 10;
     transform: rotate(-8deg);
   }
 
-  /* Second sticker - next to button */
+  /* Second sticker (tutorial) – down by the View Tutorials button */
+  .about-row.reverse {
+    padding-bottom: 3.5rem;  /* space at bottom for the sticker */
+  }
+
   .about-row.reverse .about-img-box {
-    position: static;
-    transform: rotate(8deg);
-    right: auto;
-    left: auto;
     top: auto;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .about-row.reverse .about-text-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .tutorial-button {
-    font-size: 1.1rem;
-    padding: 0.7rem 1.3rem;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .about-row.reverse .about-text-inner > :last-child {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    right: 1rem;
+    bottom: 1.1rem;          /* sits next to the button area */
+    transform: rotate(6deg);
   }
 
   .about-img-box img {
@@ -1212,18 +1203,10 @@ main {
     box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
   }
 
-  .about-row.reverse .about-img-box img {
-    transform: none;
-  }
-
   .about-text-box {
     padding: 1rem;
     font-size: 1.05rem;
     width: 100%;
-  }
-
-  .about-row.reverse .about-text-box {
-    padding: 1rem;
   }
 
   .about-text-inner {
@@ -1240,12 +1223,12 @@ main {
   }
 
   .about-doodle-wrapper { 
-    margin: 0.25rem 0;
+    margin: 0 0 0.4rem;      /* tighter gap around the doodle */
   }
 
   .about-doodle { 
     width: min(280px, 75vw);
-    opacity: 0.65;
+    opacity: 0.8;
   }
 
   /* Values - single column, centered */
