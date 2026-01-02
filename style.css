@@ -1037,13 +1037,13 @@ main {
   .nav-links {
     display: none;
     flex-direction: column;
-    background: var(--paper);
+    background: var(--tan);
     position: absolute;
     top: 100%;
     right: 0;
     width: 200px;
     border: 3px solid var(--ink);
-    box-shadow: 4px 4px 0 var(--ink);
+    /*box-shadow: 4px 4px 0 var(--ink);*/
     padding: 1rem;
     z-index: 9999;
     opacity: 0;
