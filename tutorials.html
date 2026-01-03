@@ -177,7 +177,11 @@
 
         .start-button {
             display: inline-block;
+            width: auto;
             padding: 0.7rem 1.4rem;
+            min-width: fit-content;
+            text-align: center;
+            margin: 0 auto;
             background: var(--red);
             color: #fff;
             font-size: 1.05rem;
@@ -188,13 +192,6 @@
             text-decoration: none;
             text-align: center;
             transition: transform 0.2s ease, background 0.2s ease;
-
-            /* 👇 **tight width control** */
-            width: auto;
-            min-width: 160px;
-            max-width: 220px;
-
-            margin: 0.5rem auto 0;
         }
 
         .start-button:hover {
