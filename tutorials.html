@@ -176,7 +176,7 @@
 
         .start-button {
             display: block;
-            width: 40%;
+            width: 100%;
             padding: 0.8rem 1.5rem;
             background: var(--red);
             color: #fff;
@@ -215,19 +215,22 @@
         .filter-tab {
             padding: 0.6rem 1.2rem;
             background: var(--paper);
+            border: 2px solid #fff;
             border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 2px 2px 0 var(--ink);
+            box-shadow: 3px 3px 0 var(--ink);
         }
 
         .filter-tab:hover,
         .filter-tab.active {
             background: var(--blue);
             color: #fff;
+            border: 2px solid #fff;
             transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0 var(--ink);
+            box-shadow: 5px 5px 0 var(--ink);
         }
 
         @media (max-width: 1200px) {
@@ -270,6 +273,10 @@
             .filter-tab {
                 font-size: 0.9rem;
                 padding: 0.5rem 1rem;
+            }
+
+            .start-button {
+                width: 60%;
             }
         }
 
@@ -317,13 +324,12 @@
         </div>
 
         <!-- Series Grid -->
-        <div class="series-grid">
+        <div class="series-grid" id="seriesGrid">
             
             <!-- Series Card 1 -->
-            <div class="series-card">
+            <div class="series-card" data-series-id="plank-bird-pose" data-level="Beginner">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
-                    <!-- Replace with actual thumbnail -->
                     <img src="images/plank.jpg" alt="Bird Pose">
                 </div>
                 <div class="series-content">
@@ -337,12 +343,14 @@
                         <span>⏱️ 15-20 min each</span>
                         <span>🌟 Beginner</span>
                     </div>
-                    <a href="#" class="start-button">Start Day 1</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
+                    </div>
                 </div>
             </div>
 
-            <!-- Series Card 2 - In Progress -->
-            <div class="series-card">
+            <!-- Series Card 2 -->
+            <div class="series-card" data-series-id="flying-therapeutics" data-level="Therapeutic">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
                     <img src="images/flying-therapeutics.JPG" alt="Flying Therapeutics">
@@ -357,18 +365,14 @@
                         <span>⏱️ 20-25 min each</span>
                         <span>🌙 Therapeutic</span>
                     </div>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 42%"></div>
-                        </div>
-                        <div class="progress-text">Day 3 of 7 complete</div>
-                        <a href="#" class="start-button continue">Continue Day 4</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
                     </div>
                 </div>
             </div>
 
             <!-- Series Card 3 -->
-            <div class="series-card">
+            <div class="series-card" data-series-id="partner-stretching" data-level="Beginner">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
                     <img src="images/partner-stretches.jpg" alt="Partner Stretching">
@@ -383,12 +387,14 @@
                         <span>⏱️ 15-18 min each</span>
                         <span>🌟 Beginner</span>
                     </div>
-                    <a href="#" class="start-button">Start Day 1</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
+                    </div>
                 </div>
             </div>
 
             <!-- Series Card 4 -->
-            <div class="series-card">
+            <div class="series-card" data-series-id="throne" data-level="Intermediate">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
                     <img src="images/chair.jpg" alt="Throne">
@@ -403,12 +409,14 @@
                         <span>⏱️ 25-30 min each</span>
                         <span>⭐ Intermediate</span>
                     </div>
-                    <a href="#" class="start-button">Start Day 1</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
+                    </div>
                 </div>
             </div>
 
             <!-- Series Card 5 -->
-            <div class="series-card">
+            <div class="series-card" data-series-id="thai-massage-basics" data-level="Therapeutic">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
                     <img src="images/flying.jpg" alt="Thai Massage Basics">
@@ -423,27 +431,31 @@
                         <span>⏱️ 20-25 min each</span>
                         <span>🌙 Therapeutic</span>
                     </div>
-                    <a href="#" class="start-button">Start Day 1</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
+                    </div>
                 </div>
             </div>
 
             <!-- Series Card 6 -->
-            <div class="series-card">
+            <div class="series-card" data-series-id="trust-exercises" data-level="Intermediate">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
-                    <img src="images/push.jpg" alt="Trust Excercises">
+                    <img src="images/push.jpg" alt="Trust Exercises">
                 </div>
                 <div class="series-content">
                     <h3 class="series-title">Trust Exercises</h3>
                     <p class="series-description">
-                        Build trust with your partner through these beginner-friendly excercises.
+                        Build trust with your partner through these beginner-friendly exercises.
                     </p>
                     <div class="series-meta">
                         <span>📅 7 videos</span>
                         <span>⏱️ 25-30 min each</span>
                         <span>⭐ Intermediate</span>
                     </div>
-                    <a href="#" class="start-button">Start Day 1</a>
+                    <div class="button-container">
+                        <!-- Progress will be injected here by JS -->
+                    </div>
                 </div>
             </div>
 
@@ -464,6 +476,125 @@
     </footer>
 
     <script>
+        // ========================================
+        // PROGRESS TRACKING WITH LOCALSTORAGE
+        // ========================================
+
+        // Get all progress from localStorage
+        function getAllProgress() {
+            const stored = localStorage.getItem('partnerMovesProgress');
+            return stored ? JSON.parse(stored) : {};
+        }
+
+        // Get progress for a specific series
+        function getSeriesProgress(seriesId) {
+            const allProgress = getAllProgress();
+            return allProgress[seriesId] || { currentDay: 1, completedDays: [] };
+        }
+
+        // Save progress for a series
+        function saveSeriesProgress(seriesId, currentDay, completedDays) {
+            const allProgress = getAllProgress();
+            allProgress[seriesId] = {
+                currentDay: currentDay,
+                completedDays: completedDays,
+                lastAccessed: new Date().toISOString()
+            };
+            localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
+        }
+
+        // Mark a day as complete and move to next
+        function completeDay(seriesId, day) {
+            const progress = getSeriesProgress(seriesId);
+            
+            // Add to completed days if not already there
+            if (!progress.completedDays.includes(day)) {
+                progress.completedDays.push(day);
+            }
+            
+            // Move to next day (max 7)
+            const nextDay = Math.min(day + 1, 7);
+            
+            saveSeriesProgress(seriesId, nextDay, progress.completedDays);
+            
+            // Refresh the UI
+            renderAllProgress();
+        }
+
+        // Reset progress for a series
+        function resetSeries(seriesId) {
+            const allProgress = getAllProgress();
+            delete allProgress[seriesId];
+            localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
+            renderAllProgress();
+        }
+
+        // Render progress for all series cards
+        function renderAllProgress() {
+            const cards = document.querySelectorAll('.series-card');
+            
+            cards.forEach(card => {
+                const seriesId = card.getAttribute('data-series-id');
+                const progress = getSeriesProgress(seriesId);
+                const buttonContainer = card.querySelector('.button-container');
+                
+                const completedCount = progress.completedDays.length;
+                const currentDay = progress.currentDay;
+                const percentComplete = (completedCount / 7) * 100;
+                
+                // Clear existing content
+                buttonContainer.innerHTML = '';
+                
+                // If there's progress, show progress bar
+                if (completedCount > 0) {
+                    const progressContainer = document.createElement('div');
+                    progressContainer.className = 'progress-container';
+                    
+                    progressContainer.innerHTML = `
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${percentComplete}%"></div>
+                        </div>
+                        <div class="progress-text">Day ${completedCount} of 7 complete</div>
+                    `;
+                    
+                    buttonContainer.appendChild(progressContainer);
+                }
+                
+                // Add button
+                const button = document.createElement('button');
+                button.className = 'start-button' + (completedCount > 0 ? ' continue' : '');
+                button.textContent = completedCount > 0 ? `Continue Day ${currentDay}` : 'Start Day 1';
+                
+                // Button click handler - simulates completing the current day
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    if (currentDay <= 7) {
+                        // Simulate completing this day
+                        completeDay(seriesId, currentDay);
+                        
+                        // Show feedback
+                        if (currentDay === 7) {
+                            alert(`🎉 Congratulations! You've completed the entire ${card.querySelector('.series-title').textContent} series!`);
+                        } else {
+                            alert(`✅ Day ${currentDay} complete! Moving to Day ${currentDay + 1}.`);
+                        }
+                    }
+                });
+                
+                buttonContainer.appendChild(button);
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAllProgress();
+        });
+
+        // ========================================
+        // NAVIGATION & FILTERING
+        // ========================================
+
         const toggleBtn = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
       
@@ -471,13 +602,30 @@
           navLinks.classList.toggle('active');
         });
 
-        // Filter functionality (basic example)
+        // Filter functionality
         const filterTabs = document.querySelectorAll('.filter-tab');
+        const seriesCards = document.querySelectorAll('.series-card');
+        
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
+                // Update active tab
                 filterTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                // Add filtering logic here based on tab text
+                
+                const filterText = tab.textContent.trim();
+                
+                // Filter cards
+                seriesCards.forEach(card => {
+                    const level = card.getAttribute('data-level');
+                    
+                    if (filterText === 'All Series') {
+                        card.style.display = 'block';
+                    } else if (level === filterText) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
