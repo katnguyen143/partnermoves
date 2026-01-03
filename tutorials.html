@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorials - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon-apple.png" />
+    <style>
+
+        /* Tutorial-specific styles */
+        .tutorials-hero {
+            max-width: 1400px;
+            padding: 0 2rem;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .tutorials-hero h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 4rem;
+            color: var(--blue);
+            text-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .tutorials-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* Series Grid */
+        .series-section {
+            max-width: 1400px;
+            padding: 0 2rem;
+            margin: 3rem auto;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .series-card {
+            background: var(--paper);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .series-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .series-thumbnail {
+            width: 100%;
+            height: 220px;
+            background: var(--blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .series-card:nth-child(2) .series-thumbnail {
+            background: var(--red);
+        }
+
+        .series-card:nth-child(3) .series-thumbnail {
+            background: var(--yellow);
+        }
+
+        .series-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .series-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.95);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--ink);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .series-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .series-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1.8rem;
+            color: var(--red);
+            text-shadow: 1.5px 1.5px 0 var(--ink);
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .series-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--ink);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .series-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .series-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .progress-container {
+            margin-top: auto;
+            padding-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--blue);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .start-button {
+            display: block;
+            width: 40%;
+            padding: 0.8rem 1.5rem;
+            background: var(--red);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            text-shadow: 2px 2px 0 var(--ink);
+            box-shadow: 3px 3px 0 var(--ink);
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .start-button:hover {
+            background: var(--yellow);
+            color: var(--paper);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .start-button.continue {
+            background: var(--blue);
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-tab {
+            padding: 0.6rem 1.2rem;
+            background: var(--paper);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 2px 2px 0 var(--ink);
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--blue);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--ink);
+        }
+
+        @media (max-width: 1200px) {
+            .series-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .series-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .tutorials-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .tutorials-hero p {
+                font-size: 1rem;
+            }
+
+            .series-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .series-title {
+                font-size: 1.5rem;
+            }
+
+            .filter-tabs {
+                gap: 0.5rem;
+            }
+
+            .filter-tab {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .series-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </div>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#about">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="#retreats">Retreats</a>
+          <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="tutorials-hero">
+        <h1>Tutorials</h1>
+        <p>
+            Each tutorial series is designed as a 7-day journey. Practice one video per day, 
+            build your skills progressively, and enjoy the process.
+        </p>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="series-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active">All Series</button>
+            <button class="filter-tab">Beginner</button>
+            <button class="filter-tab">Intermediate</button>
+            <button class="filter-tab">Therapeutic</button>
+        </div>
+
+        <!-- Series Grid -->
+        <div class="series-grid">
+            
+            <!-- Series Card 1 -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <!-- Replace with actual thumbnail -->
+                    <img src="images/plank.jpg" alt="Bird Pose">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Plank (Bird Pose)</h3>
+                    <p class="series-description">
+                        Start your acroyoga journey with a fundamental pose. 
+                        Perfect for complete beginners!
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 15-20 min each</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <a href="#" class="start-button">Start Day 1</a>
+                </div>
+            </div>
+
+            <!-- Series Card 2 - In Progress -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/flying-therapeutics.JPG" alt="Flying Therapeutics">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Flying Therapeutics</h3>
+                    <p class="series-description">
+                        Learn to give and receive grounding, healing touches through lunar acroyoga practices.
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 20-25 min each</span>
+                        <span>🌙 Therapeutic</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 42%"></div>
+                        </div>
+                        <div class="progress-text">Day 3 of 7 complete</div>
+                        <a href="#" class="start-button continue">Continue Day 4</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Series Card 3 -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/partner-stretches.jpg" alt="Partner Stretching">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Partner Stretching</h3>
+                    <p class="series-description">
+                        Deepen your flexibility together with safe, effective partner-assisted stretches.
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 15-18 min each</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <a href="#" class="start-button">Start Day 1</a>
+                </div>
+            </div>
+
+            <!-- Series Card 4 -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/chair.jpg" alt="Throne">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Throne</h3>
+                    <p class="series-description">
+                        Take a seat on your partner and learn to fly or base the throne pose.
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 25-30 min each</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                    <a href="#" class="start-button">Start Day 1</a>
+                </div>
+            </div>
+
+            <!-- Series Card 5 -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/flying.jpg" alt="Thai Massage Basics">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Thai Massage Basics</h3>
+                    <p class="series-description">
+                        Learn foundational Thai massage techniques to support and heal your practice partners.
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 20-25 min each</span>
+                        <span>🌙 Therapeutic</span>
+                    </div>
+                    <a href="#" class="start-button">Start Day 1</a>
+                </div>
+            </div>
+
+            <!-- Series Card 6 -->
+            <div class="series-card">
+                <div class="series-thumbnail">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/push.jpg" alt="Trust Excercises">
+                </div>
+                <div class="series-content">
+                    <h3 class="series-title">Trust Exercises</h3>
+                    <p class="series-description">
+                        Build trust with your partner through these beginner-friendly excercises.
+                    </p>
+                    <div class="series-meta">
+                        <span>📅 7 videos</span>
+                        <span>⏱️ 25-30 min each</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                    <a href="#" class="start-button">Start Day 1</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="#retreats">Retreats</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+
+        // Filter functionality (basic example)
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                // Add filtering logic here based on tab text
+            });
+        });
+    </script>
+</body>
+</html>
