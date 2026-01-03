@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plank (Bird Pose) - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        /* Series View Specific Styles */
+        .series-header {
+            max-width: 1400px;
+            padding: 2rem 2rem 1rem;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--paper);
+            border: 2px solid #fff;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--ink);
+            box-shadow: 2px 2px 0 var(--ink);
+            transition: all 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--ink);
+        }
+
+        .series-intro {
+            max-width: 1400px;
+            padding: 0 2rem 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .series-intro h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 3.5rem;
+            color: var(--red);
+            text-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .series-intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .series-progress-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #E0E0E0;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .series-progress-fill {
+            height: 100%;
+            background: var(--blue);
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Video Grid */
+        .videos-section {
+            max-width: 1400px;
+            padding: 0 2rem 3rem;
+            margin: 0 auto;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--paper);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+        }
+
+        .video-card.completed {
+            border: 3px solid var(--blue);
+        }
+
+        .video-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--yellow) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-card:nth-child(even) .video-thumbnail {
+            background: linear-gradient(135deg, var(--red) 0%, var(--yellow) 100%);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .video-card.locked .play-icon {
+            background: rgba(200,200,200,0.9);
+            color: #999;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .status-badge.completed {
+            background: var(--blue);
+            color: white;
+        }
+
+        .status-badge.locked {
+            background: rgba(200,200,200,0.95);
+            color: #666;
+        }
+
+        .video-content {
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .video-day {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1.1rem;
+            color: var(--blue);
+            text-shadow: 1px 1px 0 var(--ink);
+            margin-bottom: 0.3rem;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .watch-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            padding: 0.7rem 1.3rem;
+            background: var(--red);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            text-shadow: 1.5px 1.5px 0 var(--ink);
+            box-shadow: 3px 3px 0 var(--ink);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .watch-button:hover {
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .watch-button.completed {
+            background: var(--blue);
+        }
+
+        .video-card.locked .watch-button {
+            background: #ccc;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        .video-card.locked .watch-button:hover {
+            transform: none;
+            box-shadow: 3px 3px 0 var(--ink);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .videos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .series-intro h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .series-intro h1 {
+                font-size: 2rem;
+            }
+
+            .series-intro p {
+                font-size: 1rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-thumbnail {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </div>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#about">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="#retreats">Retreats</a>
+          <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="series-header">
+        <a href="tutorials.html" class="back-button">
+            <span>←</span> Back to All Series
+        </a>
+    </div>
+
+    <section class="series-intro">
+        <h1>Plank (Bird Pose)</h1>
+        <p>
+            Start your acroyoga journey with this fundamental pose. Over the next 7 days, 
+            you'll build strength, learn proper alignment, and develop trust with your partner. 
+            Each video builds on the last—practice daily for best results!
+        </p>
+        
+        <div class="series-progress-bar">
+            <div class="series-progress-fill" id="overallProgress" style="width: 28%"></div>
+        </div>
+        <p class="progress-label"><span id="completedCount">2</span> of 7 days complete</p>
+    </section>
+
+    <section class="videos-section">
+        <div class="videos-grid">
+            
+            <!-- Day 1 - Completed -->
+            <div class="video-card completed" data-day="1">
+                <div class="video-thumbnail">
+                    <span class="status-badge completed">✓ Completed</span>
+                    <img src="images/plank.jpg" alt="Day 1">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 1</div>
+                    <h3 class="video-title">Introduction & Setup</h3>
+                    <p class="video-description">
+                        Learn the basics of bird pose, including proper hand placement, 
+                        base positioning, and communication techniques.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 15 min</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <a href="#" class="watch-button completed">Watch Again</a>
+                </div>
+            </div>
+
+            <!-- Day 2 - Completed -->
+            <div class="video-card completed" data-day="2">
+                <div class="video-thumbnail">
+                    <span class="status-badge completed">✓ Completed</span>
+                    <img src="images/acroyoga.jpg" alt="Day 2">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 2</div>
+                    <h3 class="video-title">Building Stability</h3>
+                    <p class="video-description">
+                        Focus on finding your balance point and maintaining steady, 
+                        controlled movements in the pose.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 18 min</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <a href="#" class="watch-button completed">Watch Again</a>
+                </div>
+            </div>
+
+            <!-- Day 3 - Available -->
+            <div class="video-card" data-day="3">
+                <div class="video-thumbnail">
+                    <img src="images/partner-stretches.jpg" alt="Day 3">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 3</div>
+                    <h3 class="video-title">Transitions In & Out</h3>
+                    <p class="video-description">
+                        Master smooth, safe transitions into and out of bird pose. 
+                        Build confidence and flow.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 20 min</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <a href="#" class="watch-button">Start Day 3</a>
+                </div>
+            </div>
+
+            <!-- Day 4 - Locked -->
+            <div class="video-card locked" data-day="4">
+                <div class="video-thumbnail">
+                    <span class="status-badge locked">🔒 Locked</span>
+                    <img src="images/flying-therapeutics.JPG" alt="Day 4">
+                    <div class="play-icon">🔒</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 4</div>
+                    <h3 class="video-title">Adding Movement</h3>
+                    <p class="video-description">
+                        Explore gentle movements and variations while maintaining 
+                        stability in bird pose.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 22 min</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                    <button class="watch-button" disabled>Complete Day 3 First</button>
+                </div>
+            </div>
+
+            <!-- Day 5 - Locked -->
+            <div class="video-card locked" data-day="5">
+                <div class="video-thumbnail">
+                    <span class="status-badge locked">🔒 Locked</span>
+                    <img src="images/chair.jpg" alt="Day 5">
+                    <div class="play-icon">🔒</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 5</div>
+                    <h3 class="video-title">Extended Holds</h3>
+                    <p class="video-description">
+                        Build endurance and comfort by extending your time in the pose 
+                        with proper breathing.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 20 min</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                    <button class="watch-button" disabled>Complete Day 4 First</button>
+                </div>
+            </div>
+
+            <!-- Day 6 - Locked -->
+            <div class="video-card locked" data-day="6">
+                <div class="video-thumbnail">
+                    <span class="status-badge locked">🔒 Locked</span>
+                    <img src="images/flying.jpg" alt="Day 6">
+                    <div class="play-icon">🔒</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 6</div>
+                    <h3 class="video-title">Flow Sequences</h3>
+                    <p class="video-description">
+                        Connect bird pose with other basic poses to create flowing, 
+                        playful sequences.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 25 min</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                    <button class="watch-button" disabled>Complete Day 5 First</button>
+                </div>
+            </div>
+
+            <!-- Day 7 - Locked -->
+            <div class="video-card locked" data-day="7">
+                <div class="video-thumbnail">
+                    <span class="status-badge locked">🔒 Locked</span>
+                    <img src="images/push.jpg" alt="Day 7">
+                    <div class="play-icon">🔒</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-day">Day 7</div>
+                    <h3 class="video-title">Mastery & Next Steps</h3>
+                    <p class="video-description">
+                        Review your progress, refine your technique, and learn what 
+                        poses to explore next in your journey.
+                    </p>
+                    <div class="video-meta">
+                        <span>⏱️ 18 min</span>
+                        <span>🌟 Beginner</span>
+                    </div>
+                    <button class="watch-button" disabled>Complete Day 6 First</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="#retreats">Retreats</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+
+        // Watch button click handlers
+        const watchButtons = document.querySelectorAll('.watch-button');
+        
+        watchButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const card = button.closest('.video-card');
+                const day = card.getAttribute('data-day');
+                
+                if (!card.classList.contains('locked')) {
+                    // Here you would open the video player
+                    alert(`Opening Day ${day} video...`);
+                    
+                    // Mark as completed (simulate)
+                    if (!card.classList.contains('completed')) {
+                        card.classList.add('completed');
+                        button.textContent = 'Watch Again';
+                        button.classList.add('completed');
+                        
+                        // Add completed badge
+                        const thumbnail = card.querySelector('.video-thumbnail');
+                        const badge = document.createElement('span');
+                        badge.className = 'status-badge completed';
+                        badge.textContent = '✓ Completed';
+                        thumbnail.appendChild(badge);
+                        
+                        // Unlock next video
+                        const nextDay = parseInt(day) + 1;
+                        const nextCard = document.querySelector(`[data-day="${nextDay}"]`);
+                        if (nextCard) {
+                            nextCard.classList.remove('locked');
+                            const nextButton = nextCard.querySelector('.watch-button');
+                            nextButton.disabled = false;
+                            nextButton.textContent = `Start Day ${nextDay}`;
+                            
+                            const lockedBadge = nextCard.querySelector('.status-badge.locked');
+                            if (lockedBadge) {
+                                lockedBadge.remove();
+                            }
+                        }
+                        
+                        // Update progress bar
+                        updateProgress();
+                    }
+                }
+            });
+        });
+
+        function updateProgress() {
+            const completed = document.querySelectorAll('.video-card.completed').length;
+            const percentage = (completed / 7) * 100;
+            
+            document.getElementById('overallProgress').style.width = percentage + '%';
+            document.getElementById('completedCount').textContent = completed;
+        }
+    </script>
+</body>
+</html>
