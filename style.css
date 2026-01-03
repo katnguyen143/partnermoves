@@ -101,6 +101,8 @@ header .nav-links a {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-text {
@@ -958,8 +960,8 @@ main {
   flex: 0 0 auto;
   max-width: 100%;
   width: 100%;
-  padding: 1.25rem 1.75rem; /* side padding so it doesn’t hug the edges */
-  border-radius: 24px;      /* round the blue frame */
+  padding: 1.25rem 1.75rem; 
+  border-radius: 24px;      
   box-sizing: border-box;
 }
 
@@ -967,8 +969,8 @@ main {
   width: 100%;
   height: auto;
   display: block;
-  padding: 0;               /* remove inner padding that was messing it up */
-  border-radius: 20px;      /* rounded photo corners */
+  padding: 0;
+  border-radius: 20px; 
   object-fit: cover;
 }
 
