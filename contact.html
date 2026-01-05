@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        /* Contact Page Styles */
+        .contact-hero {
+            max-width: 1400px;
+            padding: 2rem 2rem 1rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 4rem;
+            color: var(--red);
+            text-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            max-width: 800px;
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--paper);
+            padding: 2.5rem;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            background: white;
+            color: var(--ink);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(117, 168, 208, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #999;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--red);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-shadow: 2px 2px 0 var(--ink);
+            box-shadow: 4px 4px 0 var(--ink);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            width: auto;
+        }
+
+        .submit-button:hover {
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--ink);
+        }
+
+        .button-wrapper {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Other Ways Section */
+        .other-ways {
+            max-width: 800px;
+            padding: 2rem 2rem 3rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .other-ways h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2.5rem;
+            color: var(--blue);
+            text-shadow: 2px 2px 0 var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-options {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-option {
+            background: var(--paper);
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-option:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-option h3 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1.5rem;
+            color: var(--red);
+            text-shadow: 1.5px 1.5px 0 var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-option p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact-option a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-option a:hover {
+            color: var(--red);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-option {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-hero p {
+                font-size: 1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .other-ways h2 {
+                font-size: 2rem;
+            }
+
+            .submit-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </a>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="about.html">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>
+            Have a question? Want to collaborate? Or just want to say hi? 
+            We'd love to hear from you!
+        </p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    class="form-input" 
+                    placeholder="Your name"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="form-input" 
+                    placeholder="your.email@example.com"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <input 
+                    type="text" 
+                    id="subject" 
+                    class="form-input" 
+                    placeholder="What's this about?"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea 
+                    id="message" 
+                    class="form-textarea" 
+                    placeholder="Tell us what's on your mind..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="button-wrapper">
+                <button type="submit" class="submit-button">Send Message</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Other Ways to Connect -->
+    <section class="other-ways">
+        <h2>Other Ways to Connect</h2>
+        <div class="contact-options">
+            
+            <div class="contact-option">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>
+                    Prefer email? Drop us a line at<br>
+                    <a href="mailto:hello@partnermoves.com">hello@partnermoves.com</a>
+                </p>
+            </div>
+
+            <div class="contact-option">
+                <div class="contact-icon">📱</div>
+                <h3>Social Media</h3>
+                <p>
+                    Follow us for updates, tips, and community vibes<br>
+                    <a href="#" target="_blank">Instagram</a> • 
+                    <a href="#" target="_blank">Facebook</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="retreats.html">Retreats</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would send this data to your backend/email service
+            console.log('Contact form submitted:', { name, email, subject, message });
+            
+            alert(`Thanks for reaching out, ${name}! We'll get back to you soon at ${email}. 🎉`);
+            
+            // Clear form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

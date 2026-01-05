@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retreats - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        /* Retreats Page Styles */
+        .retreats-hero {
+            max-width: 1400px;
+            padding: 2rem 2rem 1.5rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .retreats-hero h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 4.5rem;
+            color: var(--red);
+            text-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--ink);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 1.5rem;
+            transform: rotate(-2deg);
+        }
+
+        .retreats-hero p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /*
+        .what-to-expect {
+            max-width: 1400px;
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+        }
+
+        .what-to-expect h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 3rem;
+            color: var(--blue);
+            text-shadow: 2px 2px 0 var(--ink);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .expect-card {
+            background: var(--paper);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .expect-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expect-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .expect-card h3 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1.5rem;
+            color: var(--red);
+            text-shadow: 1.5px 1.5px 0 var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .expect-card p {
+            line-height: 1.6;
+            color: #666;
+        } */
+
+        /* Locations Section */
+        .locations-section {
+            max-width: 1400px;
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+        }
+
+        .locations-section h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 3rem;
+            color: var(--blue);
+            text-shadow: 2px 2px 0 var(--ink);
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .locations-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .location-card {
+            background: var(--paper);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 250px;
+            background: var(--blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-card:nth-child(2) .location-image {
+            background: var(--red);
+        }
+
+        .location-card:nth-child(3) .location-image {
+            background: var(--yellow);
+        }
+
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .location-content {
+            padding: 1.75rem;
+            text-align: center;
+        }
+
+        .location-name {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2rem;
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .location-country {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .location-description {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.25rem;
+        }
+
+        .location-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .highlight-tag {
+            background: var(--blue);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .location-card:nth-child(2) .highlight-tag {
+            background: var(--red);
+        }
+
+        .location-card:nth-child(3) .highlight-tag {
+            background: var(--yellow);
+            color: var(--ink);
+        }
+
+        /* Interest Form Section */
+        .interest-section {
+            max-width: 800px;
+            padding: 2.5rem 2rem 3rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .interest-section h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2.5rem;
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .interest-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .interest-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 1rem 1.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            background: white;
+            color: var(--ink);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(117, 168, 208, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #999;
+        }
+
+        .notify-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--red);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-shadow: 2px 2px 0 var(--ink);
+            box-shadow: 4px 4px 0 var(--ink);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            width: auto;
+        }
+
+        .notify-button:hover {
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--ink);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .retreats-hero h1 {
+                font-size: 3rem;
+            }
+
+            .what-to-expect h2,
+            .locations-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .expect-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .retreats-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .retreats-hero p,
+            .interest-section p {
+                font-size: 1rem;
+            }
+
+            .what-to-expect h2,
+            .locations-section h2 {
+                font-size: 2rem;
+            }
+
+            .interest-section h2 {
+                font-size: 2rem;
+            }
+
+            .notify-button {
+                font-size: 1.1rem;
+                padding: 0.9rem 2rem;
+            }
+
+            .expect-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </a>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="about.html">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="retreats-hero">
+        <h1>Acroyoga Retreats</h1>
+        <div class="coming-soon-badge">🌴 Coming Soon! 🌴</div>
+        <p>
+            Imagine practicing acroyoga surrounded by lush nature, warm community, 
+            and the perfect balance of challenge and relaxation. Our retreats will combine daily 
+            practice, workshops, therapeutic sessions, and plenty of time to connect, explore, 
+            and play.
+        </p>
+    </section>
+
+    
+    <!-- 
+    <section class="what-to-expect">
+        <h2>What to Expect</h2>
+        <div class="expect-grid">
+            <div class="expect-card">
+                <div class="expect-icon">🧘</div>
+                <h3>Daily Practice</h3>
+                <p>
+                    Morning and evening sessions covering acroyoga fundamentals, 
+                    partner stretching, and flowing sequences.
+                </p>
+            </div>
+
+            <div class="expect-card">
+                <div class="expect-icon">🌙</div>
+                <h3>Therapeutics</h3>
+                <p>
+                    Healing flying therapeutics and Thai massage sessions to 
+                    restore and rejuvenate your body and mind.
+                </p>
+            </div>
+
+            <div class="expect-card">
+                <div class="expect-icon">👥</div>
+                <h3>Community</h3>
+                <p>
+                    Connect with like-minded people in a supportive, 
+                    judgment-free space where everyone belongs.
+                </p>
+            </div>
+
+            <div class="expect-card">
+                <div class="expect-icon">🏝️</div>
+                <h3>Adventure</h3>
+                <p>
+                    Free time to explore beaches, waterfalls, local culture, 
+                    and create memories beyond the mat.
+                </p>
+            </div>
+
+            <div class="expect-card">
+                <div class="expect-icon">🍜</div>
+                <h3>Nourishment</h3>
+                <p>
+                    Healthy, delicious meals that fuel your practice and 
+                    introduce you to local flavors.
+                </p>
+            </div>
+
+            <div class="expect-card">
+                <div class="expect-icon">✨</div>
+                <h3>All Levels</h3>
+                <p>
+                    Whether you're brand new or experienced, you'll find 
+                    the right challenge and support for your journey.
+                </p>
+            </div>
+        </div>
+    </section> What to Expect Section -->
+
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <h2>Dream Destinations</h2>
+        <p class="locations-subtitle">We're exploring these beautiful locations for future retreats</p>
+        
+        <div class="locations-grid">
+            
+            <!-- Koh Phangan -->
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/sunset.jpg" alt="Koh Phangan beach">
+                </div>
+                <div class="location-content">
+                    <h3 class="location-name">Koh Phangan</h3>
+                    <p class="location-country">🇹🇭 Thailand</p>
+                    <p class="location-description">
+                        A tropical island paradise known for its pristine beaches, lush jungles, 
+                        and thriving wellness community. Home to incredible sunset views and 
+                        year-round warm weather.
+                    </p>
+                    <div class="location-highlights">
+                        <span class="highlight-tag">Beaches</span>
+                        <span class="highlight-tag">Waterfalls</span>
+                        <span class="highlight-tag">Community</span>
+                        <span class="highlight-tag">Yoga Hub</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bali -->
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/group-photo.jpg" alt="Bali rice terraces">
+                </div>
+                <div class="location-content">
+                    <h3 class="location-name">Bali</h3>
+                    <p class="location-country">🇮🇩 Indonesia</p>
+                    <p class="location-description">
+                        The Island of the Gods offers stunning rice terraces, sacred temples, 
+                        incredible food, and a deep spiritual culture. A perfect blend of 
+                        adventure and tranquility.
+                    </p>
+                    <div class="location-highlights">
+                        <span class="highlight-tag">Culture</span>
+                        <span class="highlight-tag">Nature</span>
+                        <span class="highlight-tag">Temples</span>
+                        <span class="highlight-tag">Surf & Sand</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Costa Rica -->
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/flying.jpg" alt="Costa Rica jungle">
+                </div>
+                <div class="location-content">
+                    <h3 class="location-name">Costa Rica</h3>
+                    <p class="location-country">🇨🇷 Costa Rica</p>
+                    <p class="location-description">
+                        Pura vida! This Central American gem offers rainforests teeming with 
+                        wildlife, pristine coastlines, and some of the world's best vibes for 
+                        movement and connection.
+                    </p>
+                    <div class="location-highlights">
+                        <span class="highlight-tag">Rainforest</span>
+                        <span class="highlight-tag">Wildlife</span>
+                        <span class="highlight-tag">Adventure</span>
+                        <span class="highlight-tag">Pura Vida</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interest Form Section -->
+    <section class="interest-section">
+        <h2>Stay in the Loop!</h2>
+        <p>
+            Be the first to know when retreat dates are announced. Share your contact info 
+            and let us know what kind of retreat experience you're dreaming of!
+        </p>
+        
+        <form class="interest-form" id="interestForm">
+            <input 
+                type="text" 
+                class="form-input" 
+                placeholder="Your Name" 
+                required
+                id="nameInput"
+            />
+            
+            <input 
+                type="email" 
+                class="form-input" 
+                placeholder="Email Address" 
+                required
+                id="emailInput"
+            />
+            
+            <textarea 
+                class="form-textarea" 
+                placeholder="Optional: What kind of retreat are you interested in? (e.g., beginner-friendly, intensive training, therapeutic focus, specific location preferences, etc.)"
+                id="preferencesInput"
+            ></textarea>
+            
+            <button type="submit" class="notify-button">Notify Me!</button>
+        </form>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="retreats.html">Retreats</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+
+        // Interest form submission
+        const interestForm = document.getElementById('interestForm');
+        interestForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const preferences = document.getElementById('preferencesInput').value;
+            
+            // Here you would send this data to your backend/email service
+            console.log('Form submitted:', { name, email, preferences });
+            
+            alert(`Thanks ${name}! We'll notify you at ${email} when retreats are available! 🎉`);
+            
+            // Clear form
+            interestForm.reset();
+        });
+    </script>
+</body>
+</html>

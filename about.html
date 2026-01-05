@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        /* About Page Styles */
+        .about-hero {
+            max-width: 1400px;
+            padding: 2rem 2rem 1.5rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 4.5rem;
+            color: var(--blue);
+            text-shadow: 3px 3px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--ink);
+        }
+
+        /* Story Section */
+        .story-section {
+            max-width: 1400px;
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+        }
+
+        .story-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .story-content.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .story-image {
+            flex: 0 0 420px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2.5rem;
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 800px;
+            padding: 2.5rem 2rem 3rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2.5rem;
+            color: var(--blue);
+            text-shadow: 2px 2px 0 var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--red);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-shadow: 2px 2px 0 var(--ink);
+            box-shadow: 4px 4px 0 var(--ink);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--ink);
+        }
+
+        .cta-button.secondary {
+            background: var(--blue);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+
+            .story-content,
+            .story-content.reverse {
+                flex-direction: column;
+            }
+
+            .story-image {
+                flex: 0 0 auto;
+                max-width: 100%;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-section h2,
+            .tonda-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+
+            .story-text h2 {
+                font-size: 2rem;
+            }
+
+            .story-text p {
+                font-size: 1rem;
+            }
+
+            .philosophy-section h2,
+            .tonda-header h2 {
+                font-size: 2rem;
+            }
+
+            .tonda-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </a>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="about.html">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About Partner Moves</h1>
+        <p>
+            We believe movement is better together. Partner Moves makes acroyoga, 
+            therapeutics, and connection accessible to everyone—no fancy tricks required, 
+            just curiosity, kindness, and a willingness to play.
+        </p>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-content">
+            <div class="story-image">
+                <img src="images/group-photo.jpg" alt="Partner Moves community">
+            </div>
+            <div class="story-text">
+                <h2>Our Story</h2>
+                <p>
+                    Partner Moves started from a simple idea: what if movement could bring 
+                    people together instead of making them feel intimidated? What if we 
+                    could create a space where laughter matters as much as technique, and 
+                    falling is just part of the fun?
+                </p>
+                <p>
+                    From beach jams in Koh Phangan to online tutorials reaching people 
+                    worldwide, we've built a community that celebrates progress over 
+                    perfection, connection over competition, and joy over everything else.
+                </p>
+            </div>
+        </div>
+
+        <div class="story-content reverse">
+            <div class="story-image">
+                <img src="images/sunset.jpg" alt="Acroyoga at sunset">
+            </div>
+            <div class="story-text">
+                <h2>Why Partner Acro?</h2>
+                <p>
+                    Acroyoga isn't just about getting upside down—it's about trust, 
+                    communication, and finding balance both physically and emotionally. 
+                    When you practice with a partner, you learn to listen, support, 
+                    and celebrate together.
+                </p>
+                <p>
+                    Whether you're building strength in solar acro, finding calm through 
+                    lunar therapeutics, or stretching with Thai massage techniques, every 
+                    practice brings you closer to yourself and others.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="retreats.html">Retreats</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
