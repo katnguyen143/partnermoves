@@ -15,37 +15,38 @@
         /* Tutorial-specific styles */
         .tutorials-hero {
             max-width: 1400px;
-            padding: 0 2rem;
-            margin: 3rem auto;
+            padding: 2rem 2rem 1.5rem;
+            margin: 0 auto;
             text-align: center;
         }
 
         .tutorials-hero h1 {
             font-family: 'Luckiest Guy', cursive;
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--blue);
             text-shadow: 3px 3px 0 var(--ink);
             margin-bottom: 1rem;
         }
 
         .tutorials-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            color: var(--ink);
         }
 
         /* Series Grid */
         .series-section {
             max-width: 1400px;
-            padding: 0 2rem;
-            margin: 3rem auto;
+            padding: 2rem 2rem 3rem;
+            margin: 0 auto;
         }
 
         .series-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
@@ -148,7 +149,6 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 260px;
         }
 
         .progress-bar {
@@ -176,22 +176,21 @@
         }
 
         .start-button {
-            display: inline-block;
-            width: auto;
-            padding: 0.7rem 1.4rem;
-            min-width: fit-content;
-            text-align: center;
-            margin: 0 auto;
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
             background: var(--red);
             color: #fff;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            border-radius: 12px;
+            border-radius: 10px;
             text-shadow: 2px 2px 0 var(--ink);
             box-shadow: 3px 3px 0 var(--ink);
             text-decoration: none;
             text-align: center;
             transition: transform 0.2s ease, background 0.2s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .start-button:hover {
@@ -205,21 +204,13 @@
             background: var(--blue);
         }
 
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            width: auto;
-        }
-
         /* Filter tabs */
         .filter-tabs {
             display: flex;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .filter-tab {
@@ -300,10 +291,10 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">
+        <div class="logo">
             <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
             <span class="logo-text">Partner Moves</span>
-        </a>
+        </div>
       
         <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
       
@@ -328,8 +319,8 @@
         <div class="filter-tabs">
             <button class="filter-tab active">All Series</button>
             <button class="filter-tab">AcroYoga</button>
-            <button class="filter-tab">Partner Stretches</button>
             <button class="filter-tab">Therapeutic</button>
+            <button class="filter-tab">Partner Stretches</button>
         </div>
 
         <!-- Series Grid -->
@@ -353,9 +344,6 @@
                         <span>🌟 Beginner</span>
                     </div>
                     <div class="button-container">
-                        <a href="plank.html" class="series-button">
-                            Start Series →
-                        </a>
                         <!-- Progress will be injected here by JS -->
                     </div>
                 </div>
@@ -396,7 +384,7 @@
                     </p>
                     <div class="series-meta">
                         <span>📅 7 videos</span>
-                        <span>⏱️ 15-18 min each</span>
+                        <span>⏱️ 10-15 min each</span>
                         <span>🌟 Beginner</span>
                     </div>
                     <div class="button-container">
@@ -418,8 +406,8 @@
                     </p>
                     <div class="series-meta">
                         <span>📅 7 videos</span>
-                        <span>⏱️ 5-10 min each</span>
-                        <span>⭐ Intermediate</span>
+                        <span>⏱️ 10-15 min each</span>
+                        <span>⭐ Beginner</span>
                     </div>
                     <div class="button-container">
                         <!-- Progress will be injected here by JS -->
@@ -440,7 +428,7 @@
                     </p>
                     <div class="series-meta">
                         <span>📅 7 videos</span>
-                        <span>⏱️ 20-25 min each</span>
+                        <span>⏱️ 15-20 min each</span>
                         <span>🌙 Therapeutic</span>
                     </div>
                     <div class="button-container">
@@ -462,8 +450,8 @@
                     </p>
                     <div class="series-meta">
                         <span>📅 7 videos</span>
-                        <span>⏱️ 10-15 min each</span>
-                        <span>🌟 Beginner</span>
+                        <span>⏱️ 10-35 min each</span>
+                        <span>⭐ Beginner</span>
                     </div>
                     <div class="button-container">
                         <!-- Progress will be injected here by JS -->
@@ -479,9 +467,10 @@
             <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
+                <a href="about.html">About</a>
                 <a href="tutorials.html">Online Tutorials</a>
-                <a href="#retreats">Retreats</a>
-                <a href="#contact">Contact</a>
+                <a href="retreats.html">Retreats</a>
+                <a href="contact.html">Contact</a>
             </nav>
             <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
         </div>
@@ -543,16 +532,6 @@
 
         // Render progress for all series cards
         function renderAllProgress() {
-            // Map series → page URL
-            const seriesPages = {
-            "plank-bird-pose": "plank.html",
-            "flying-therapeutics": "flying-therapeutics.html",
-            "partner-stretching": "partner-stretching.html",
-            "throne": "throne.html",
-            "thai-massage-basics": "thai-massage.html",
-            "trust-exercises": "trust-exercises.html"
-            };
-
             const cards = document.querySelectorAll('.series-card');
             
             cards.forEach(card => {
@@ -583,21 +562,27 @@
                 }
                 
                 // Add button
-                const button = document.createElement('a');
-                button.href = seriesPages[seriesId] || "#";
+                const button = document.createElement('button');
                 button.className = 'start-button' + (completedCount > 0 ? ' continue' : '');
                 button.textContent = completedCount > 0 ? `Continue Day ${currentDay}` : 'Start Day 1';
-                button.setAttribute("data-day", currentDay);
                 
                 // Button click handler - simulates completing the current day
-                button.addEventListener('click', () => {
-                const day = Number(button.getAttribute("data-day"));
-
-                if (day <= 7) {
-                    completeDay(seriesId, day);
-                }
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    if (currentDay <= 7) {
+                        // Simulate completing this day
+                        completeDay(seriesId, currentDay);
+                        
+                        // Show feedback
+                        if (currentDay === 7) {
+                            alert(`🎉 Congratulations! You've completed the entire ${card.querySelector('.series-title').textContent} series!`);
+                        } else {
+                            alert(`✅ Day ${currentDay} complete! Moving to Day ${currentDay + 1}.`);
+                        }
+                    }
                 });
-
+                
                 buttonContainer.appendChild(button);
             });
         }
