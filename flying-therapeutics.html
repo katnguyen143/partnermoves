@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plank (Bird Pose) - Partner Moves</title>
+    <title>Flying Therapeutics - Partner Moves</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
@@ -19,7 +19,6 @@
             gap: 3rem;
         }
 
-        /* Left Sidebar */
         .series-sidebar {
             position: sticky;
             top: 90px;
@@ -154,7 +153,6 @@
             color: #888;
         }
 
-        /* Main Content */
         .series-main {
             min-height: 100vh;
         }
@@ -190,11 +188,6 @@
             border-color: var(--blue);
         }
 
-        .day-tab.rest {
-            background: var(--yellow);
-            border-color: var(--yellow);
-        }
-
         .day-content {
             display: none;
         }
@@ -222,7 +215,6 @@
             color: #666;
         }
 
-        /* Video List */
         .video-list {
             display: flex;
             flex-direction: column;
@@ -274,20 +266,6 @@
             font-size: 14px;
         }
 
-        .video-connector {
-            position: absolute;
-            left: 11px;
-            top: 40px;
-            bottom: -40px;
-            width: 2px;
-            background: #e8e8e8;
-            border-left: 2px dashed #ddd;
-        }
-
-        .video-item:last-child .video-connector {
-            display: none;
-        }
-
         .video-thumbnail {
             width: 200px;
             height: 120px;
@@ -316,18 +294,6 @@
             font-weight: 600;
         }
 
-        .video-badge {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: var(--yellow);
-            color: var(--ink);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
         .video-details {
             flex: 1;
         }
@@ -353,11 +319,6 @@
             color: #888;
         }
 
-        .video-actions {
-            display: none;
-        }
-
-        /* Mobile Responsive */
         @media (max-width: 900px) {
             .series-container {
                 grid-template-columns: 1fr;
@@ -406,10 +367,6 @@
                 left: 1rem;
             }
 
-            .video-connector {
-                display: none;
-            }
-
             .day-title {
                 font-size: 1.75rem;
             }
@@ -442,7 +399,6 @@
 
     <div class="series-container">
         
-        <!-- Left Sidebar -->
         <aside class="series-sidebar">
             <a href="tutorials.html" class="back-button">
                 <span>←</span> Back to All Series
@@ -451,39 +407,37 @@
             <div class="series-card-sidebar">
                 <div class="series-banner">
                     <div class="series-badge">7 Days</div>
-                    <img src="images/plank.jpg" alt="Plank (Bird Pose)">
+                    <img src="images/flying-therapeutics.JPG" alt="Flying Therapeutics">
                 </div>
                 
                 <div class="series-info">
                     <div class="series-date">January 2026</div>
-                    <h2 class="series-title">Plank (Bird Pose)</h2>
+                    <h2 class="series-title">Flying Therapeutics</h2>
                     
                     <div class="series-tags">
-                        <span class="tag">⚡ Abs & Core</span>
-                        <span class="tag">💪 Full Body</span>
-                        <span class="tag">🧘 Beginner</span>
+                        <span class="tag">🌙 Therapeutic</span>
+                        <span class="tag">💆 Healing</span>
+                        <span class="tag">🧘 Relaxation</span>
                     </div>
 
                     <p class="series-description">
-                        Start your acroyoga journey with this fundamental pose. Over 7 days, 
-                        you'll build strength, learn proper alignment, and develop trust with your partner.
+                        Learn to give and receive grounding, healing touches through lunar acroyoga practices. 
+                        This series focuses on therapeutic flying and mindful connection.
                     </p>
 
                     <div class="progress-section">
                         <div class="progress-label">Your Progress</div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 28%"></div>
+                            <div class="progress-bar-fill" style="width: 0%"></div>
                         </div>
-                        <div class="progress-text">2 of 7 days complete</div>
+                        <div class="progress-text">0 of 7 videos complete</div>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="series-main">
             
-            <!-- Day Tabs -->
             <div class="day-tabs">
                 <button class="day-tab active" data-day="1">Day 1</button>
                 <button class="day-tab" data-day="2">Day 2</button>
@@ -494,81 +448,74 @@
                 <button class="day-tab" data-day="7">Day 7</button>
             </div>
 
-            <!-- Day 1 Content -->
             <div class="day-content active" data-day="1">
                 <div class="day-header">
-                    <h1 class="day-title">Day 1: Introduction & Setup</h1>
+                    <h1 class="day-title">Day 1: Introduction to Therapeutic Flying</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>🌟 Beginner</span>
+                        <span>⏱️ 10 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
                 <div class="video-list">
-                    
-                    <!-- Single Video for Day 1 -->
-                    <div class="video-item completed">
+                    <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/plank.jpg" alt="Introduction & Setup">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/flying-therapeutics.JPG" alt="Introduction">
+                            <div class="video-duration">10:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Introduction & Setup</h3>
+                            <h3 class="video-title">Introduction to Therapeutic Flying</h3>
                             <p class="video-description">
-                                Learn the basics of bird pose including proper hand placement, base positioning, 
-                                and communication techniques. This foundational video will set you up for success 
-                                throughout the series.
+                                Discover the healing power of lunar acroyoga. Learn the foundations of therapeutic touch, 
+                                grounding techniques, and how to create a safe, nurturing space for practice.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Full Body</span>
-                                <span>⚡ Core</span>
+                                <span>🌙 Healing</span>
+                                <span>💆 Relaxation</span>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Day 2 Content -->
             <div class="day-content" data-day="2">
                 <div class="day-header">
-                    <h1 class="day-title">Day 2: Building Stability</h1>
+                    <h1 class="day-title">Day 2: Folded Leaf</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>🌟 Beginner</span>
+                        <span>⏱️ 12 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
                 <div class="video-list">
-                    <div class="video-item completed">
+                    <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/acroyoga.jpg" alt="Building Stability">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/flying.jpg" alt="Folded Leaf">
+                            <div class="video-duration">12:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Building Stability</h3>
+                            <h3 class="video-title">Folded Leaf</h3>
                             <p class="video-description">
-                                Focus on finding your balance point and maintaining steady, controlled movements 
-                                in the pose. Learn to hold the position with confidence.
+                                A gentle hip opener that creates space and release. Learn to support your partner 
+                                with sensitivity and awareness.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Balance</span>
-                                <span>⚡ Core</span>
+                                <span>🌙 Hip Opening</span>
+                                <span>💆 Gentle</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 3 Content -->
             <div class="day-content" data-day="3">
                 <div class="day-header">
-                    <h1 class="day-title">Day 3: Transitions In & Out</h1>
+                    <h1 class="day-title">Day 3: Shoulder Stand</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>🌟 Beginner</span>
+                        <span>⏱️ 15 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
@@ -576,31 +523,30 @@
                     <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/partner-stretches.jpg" alt="Transitions">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/acroyoga.jpg" alt="Shoulder Stand">
+                            <div class="video-duration">15:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Transitions In & Out</h3>
+                            <h3 class="video-title">Shoulder Stand</h3>
                             <p class="video-description">
-                                Master smooth, safe transitions into and out of bird pose. Build confidence 
-                                and flow in your movements.
+                                Experience inversion therapy with support. This restorative pose helps drain tension 
+                                and promotes deep relaxation.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Technique</span>
-                                <span>⚡ Flow</span>
+                                <span>🌙 Inversion</span>
+                                <span>💆 Restorative</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 4 Content -->
             <div class="day-content" data-day="4">
                 <div class="day-header">
-                    <h1 class="day-title">Day 4: Adding Movement</h1>
+                    <h1 class="day-title">Day 4: Straddle Bat</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>⭐ Intermediate</span>
+                        <span>⏱️ 12 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
@@ -608,31 +554,30 @@
                     <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/flying-therapeutics.JPG" alt="Adding Movement">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/partner-stretches.jpg" alt="Straddle Bat">
+                            <div class="video-duration">12:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Adding Movement</h3>
+                            <h3 class="video-title">Straddle Bat</h3>
                             <p class="video-description">
-                                Explore gentle movements and variations while maintaining stability in bird pose. 
-                                Learn to shift weight and adjust positioning.
+                                A deeply relaxing pose that opens the inner legs and lower back. Perfect for 
+                                releasing stored tension.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Advanced</span>
-                                <span>⚡ Dynamic</span>
+                                <span>🌙 Deep Release</span>
+                                <span>💆 Stretching</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 5 Content -->
             <div class="day-content" data-day="5">
                 <div class="day-header">
-                    <h1 class="day-title">Day 5: Extended Holds</h1>
+                    <h1 class="day-title">Day 5: Backbend</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>⭐ Intermediate</span>
+                        <span>⏱️ 15 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
@@ -640,31 +585,30 @@
                     <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/chair.jpg" alt="Extended Holds">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/chair.jpg" alt="Backbend">
+                            <div class="video-duration">15:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Extended Holds</h3>
+                            <h3 class="video-title">Therapeutic Backbend</h3>
                             <p class="video-description">
-                                Build endurance and comfort by extending your time in the pose with proper 
-                                breathing techniques and mental focus.
+                                Open the heart and chest with supported backbending. Experience vulnerability 
+                                and trust in a safe container.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Endurance</span>
-                                <span>⚡ Breath</span>
+                                <span>🌙 Heart Opening</span>
+                                <span>💆 Supported</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 6 Content -->
             <div class="day-content" data-day="6">
                 <div class="day-header">
-                    <h1 class="day-title">Day 6: Flow Sequences</h1>
+                    <h1 class="day-title">Day 6: Mermaid Twist</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>⭐ Intermediate</span>
+                        <span>⏱️ 12 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
@@ -672,31 +616,30 @@
                     <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/flying.jpg" alt="Flow Sequences">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/push.jpg" alt="Mermaid">
+                            <div class="video-duration">12:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Flow Sequences</h3>
+                            <h3 class="video-title">Mermaid Twist</h3>
                             <p class="video-description">
-                                Connect bird pose with other basic poses to create flowing, playful sequences. 
-                                Learn to move seamlessly between positions.
+                                Gentle spinal twists release tension and create space in the torso. Learn to 
+                                support healthy spinal movement.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Flow</span>
-                                <span>⚡ Creative</span>
+                                <span>🌙 Spinal Health</span>
+                                <span>💆 Twisting</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 7 Content -->
             <div class="day-content" data-day="7">
                 <div class="day-header">
-                    <h1 class="day-title">Day 7: Mastery & Next Steps</h1>
+                    <h1 class="day-title">Day 7: Complete Flow & Integration</h1>
                     <div class="day-meta">
-                        <span>⏱️ 5 min</span>
-                        <span>🌟 Beginner</span>
+                        <span>⏱️ 15 min</span>
+                        <span>🌙 Therapeutic</span>
                     </div>
                 </div>
 
@@ -704,18 +647,18 @@
                     <div class="video-item">
                         <div class="video-checkbox"></div>
                         <div class="video-thumbnail">
-                            <img src="images/push.jpg" alt="Mastery">
-                            <div class="video-duration">5:00</div>
+                            <img src="images/plank.jpg" alt="Complete Flow">
+                            <div class="video-duration">15:00</div>
                         </div>
                         <div class="video-details">
-                            <h3 class="video-title">Mastery & Next Steps</h3>
+                            <h3 class="video-title">Complete Flow & Integration</h3>
                             <p class="video-description">
-                                Review your progress, refine your technique, and learn what poses to explore 
-                                next in your acroyoga journey. Celebrate how far you've come!
+                                Combine everything you've learned into a complete therapeutic flying sequence. 
+                                Celebrate your journey and newfound skills in healing touch.
                             </p>
                             <div class="video-meta">
-                                <span>💪 Review</span>
-                                <span>⚡ Progress</span>
+                                <span>🌙 Complete Flow</span>
+                                <span>💆 Integration</span>
                             </div>
                         </div>
                     </div>
@@ -727,7 +670,7 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <p>&copy; 2025 Partner Moves – Movement for Everyone</p>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -740,7 +683,7 @@
     </footer>
 
     <script>
-        const SERIES_ID = 'plank';
+        const SERIES_ID = 'flying-therapeutics';
         
         const toggleBtn = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -749,39 +692,12 @@
           navLinks.classList.toggle('active');
         });
 
-        // ========================================
-        // LOCALSTORAGE SYNC
-        // ========================================
-
-        // Get progress from localStorage
         function getSeriesProgress() {
             const stored = localStorage.getItem('partnerMovesProgress');
             const allProgress = stored ? JSON.parse(stored) : {};
             return allProgress[SERIES_ID] || { currentDay: 1, completedDays: [] };
         }
 
-        // Migrate old progress from 'plank-bird-pose' to 'plank' (one-time cleanup)
-        function migrateOldProgress() {
-            const stored = localStorage.getItem('partnerMovesProgress');
-            if (stored) {
-                const allProgress = JSON.parse(stored);
-                // If old key exists, delete it
-                if (allProgress['plank-bird-pose']) {
-                    delete allProgress['plank-bird-pose'];
-                    localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
-                }
-                // Also clean any corrupted plank data
-                if (allProgress['plank'] && allProgress['plank'].completedDays) {
-                    // Validate that completedDays only contains numbers 1-7
-                    allProgress['plank'].completedDays = allProgress['plank'].completedDays.filter(day => 
-                        Number.isInteger(day) && day >= 1 && day <= 7
-                    );
-                    localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
-                }
-            }
-        }
-
-        // Save progress to localStorage
         function saveSeriesProgress(completedDays) {
             const stored = localStorage.getItem('partnerMovesProgress');
             const allProgress = stored ? JSON.parse(stored) : {};
@@ -795,17 +711,10 @@
             localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
         }
 
-        // Initialize page with saved progress
         function initializeProgress() {
             const progress = getSeriesProgress();
             const dayContents = document.querySelectorAll('.day-content');
             
-            // First, clear all completed states
-            document.querySelectorAll('.video-item').forEach(item => {
-                item.classList.remove('completed');
-            });
-            
-            // Then mark only the saved completed days
             dayContents.forEach((content, index) => {
                 const dayNumber = index + 1;
                 const videoItem = content.querySelector('.video-item');
@@ -815,11 +724,9 @@
                 }
             });
             
-            // Update progress bar
             updateProgress();
         }
 
-        // Day tab switching
         const dayTabs = document.querySelectorAll('.day-tab');
         const dayContents = document.querySelectorAll('.day-content');
 
@@ -827,11 +734,9 @@
             tab.addEventListener('click', () => {
                 const day = tab.getAttribute('data-day');
                 
-                // Update active tab
                 dayTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 
-                // Update active content
                 dayContents.forEach(content => {
                     if (content.getAttribute('data-day') === day) {
                         content.classList.add('active');
@@ -842,7 +747,6 @@
             });
         });
 
-        // Video completion toggle
         const videoItems = document.querySelectorAll('.video-item');
         
         videoItems.forEach((item, index) => {
@@ -853,27 +757,21 @@
                 e.stopPropagation();
                 item.classList.toggle('completed');
                 
-                // Get current completed days
                 const progress = getSeriesProgress();
                 const completedDays = [...progress.completedDays];
                 
                 if (item.classList.contains('completed')) {
-                    // Add day if not already in list
                     if (!completedDays.includes(dayNumber)) {
                         completedDays.push(dayNumber);
                     }
                 } else {
-                    // Remove day from list
                     const dayIndex = completedDays.indexOf(dayNumber);
                     if (dayIndex > -1) {
                         completedDays.splice(dayIndex, 1);
                     }
                 }
                 
-                // Save to localStorage
                 saveSeriesProgress(completedDays);
-                
-                // Update progress display
                 updateProgress();
             });
         });
@@ -885,7 +783,6 @@
             
             document.querySelector('.progress-bar-fill').style.width = percentage + '%';
             
-            // Update text to show "videos" instead of "days"
             const progressText = completed === total 
                 ? 'All videos complete! 🎉' 
                 : `${completed} of ${total} videos complete`;
@@ -893,9 +790,7 @@
             document.querySelector('.progress-text').textContent = progressText;
         }
 
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
-            migrateOldProgress();
             initializeProgress();
         });
     </script>

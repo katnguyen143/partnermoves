@@ -175,9 +175,19 @@
             width: 100%;
         }
 
-        .start-button {
-            display: block;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 100%;
+            gap: 0.5rem;
+        }
+
+        .start-button {
+            display: inline-block;
+            width: auto;
+            min-width: 140px;
             padding: 0.8rem 1.5rem;
             background: var(--red);
             color: #fff;
@@ -277,7 +287,7 @@
             }
 
             .start-button {
-                width: 60%;
+                min-width: auto;
             }
         }
 
@@ -327,7 +337,7 @@
         <div class="series-grid" id="seriesGrid">
             
             <!-- Series Card 1 -->
-            <div class="series-card" data-series-id="plank-bird-pose" data-level="AcroYoga">
+            <div class="series-card" data-series-id="plank" data-level="AcroYoga">
                 <div class="series-thumbnail">
                     <div class="series-badge">7 Days</div>
                     <img src="images/plank.jpg" alt="Bird Pose">
@@ -464,7 +474,7 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; 2025 Partner Moves — Movement for Everyone</p>
+            <p>&copy; 2025 Partner Moves – Movement for Everyone</p>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -493,43 +503,6 @@
             return allProgress[seriesId] || { currentDay: 1, completedDays: [] };
         }
 
-        // Save progress for a series
-        function saveSeriesProgress(seriesId, currentDay, completedDays) {
-            const allProgress = getAllProgress();
-            allProgress[seriesId] = {
-                currentDay: currentDay,
-                completedDays: completedDays,
-                lastAccessed: new Date().toISOString()
-            };
-            localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
-        }
-
-        // Mark a day as complete and move to next
-        function completeDay(seriesId, day) {
-            const progress = getSeriesProgress(seriesId);
-            
-            // Add to completed days if not already there
-            if (!progress.completedDays.includes(day)) {
-                progress.completedDays.push(day);
-            }
-            
-            // Move to next day (max 7)
-            const nextDay = Math.min(day + 1, 7);
-            
-            saveSeriesProgress(seriesId, nextDay, progress.completedDays);
-            
-            // Refresh the UI
-            renderAllProgress();
-        }
-
-        // Reset progress for a series
-        function resetSeries(seriesId) {
-            const allProgress = getAllProgress();
-            delete allProgress[seriesId];
-            localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
-            renderAllProgress();
-        }
-
         // Render progress for all series cards
         function renderAllProgress() {
             const cards = document.querySelectorAll('.series-card');
@@ -540,8 +513,17 @@
                 const buttonContainer = card.querySelector('.button-container');
                 
                 const completedCount = progress.completedDays.length;
-                const currentDay = progress.currentDay;
                 const percentComplete = (completedCount / 7) * 100;
+                
+                // Determine next incomplete day
+                let nextDay = 1;
+                for (let i = 1; i <= 7; i++) {
+                    if (!progress.completedDays.includes(i)) {
+                        nextDay = i;
+                        break;
+                    }
+                }
+                if (completedCount === 7) nextDay = 7; // All complete
                 
                 // Clear existing content
                 buttonContainer.innerHTML = '';
@@ -555,33 +537,23 @@
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: ${percentComplete}%"></div>
                         </div>
-                        <div class="progress-text">Day ${completedCount} of 7 complete</div>
+                        <div class="progress-text">${completedCount} of 7 videos complete</div>
                     `;
                     
                     buttonContainer.appendChild(progressContainer);
                 }
                 
                 // Add button
-                const button = document.createElement('button');
+                const button = document.createElement('a');
+                button.href = `${seriesId}.html`;
                 button.className = 'start-button' + (completedCount > 0 ? ' continue' : '');
-                button.textContent = completedCount > 0 ? `Continue Day ${currentDay}` : 'Start Day 1';
                 
-                // Button click handler - simulates completing the current day
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    if (currentDay <= 7) {
-                        // Simulate completing this day
-                        completeDay(seriesId, currentDay);
-                        
-                        // Show feedback
-                        if (currentDay === 7) {
-                            alert(`🎉 Congratulations! You've completed the entire ${card.querySelector('.series-title').textContent} series!`);
-                        } else {
-                            alert(`✅ Day ${currentDay} complete! Moving to Day ${currentDay + 1}.`);
-                        }
-                    }
-                });
+                if (completedCount === 7) {
+                    button.textContent = '✓ Series Complete';
+                    button.style.background = '#4CAF50';
+                } else {
+                    button.textContent = completedCount > 0 ? `Continue Day ${nextDay}` : 'Start Day 1';
+                }
                 
                 buttonContainer.appendChild(button);
             });
@@ -589,6 +561,23 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
+            renderAllProgress();
+        });
+
+        // Re-render when page becomes visible (browser back button, tab switching)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                renderAllProgress();
+            }
+        });
+
+        // Re-render when window gains focus
+        window.addEventListener('focus', () => {
+            renderAllProgress();
+        });
+
+        // Re-render for browser back/forward navigation
+        window.addEventListener('pageshow', (event) => {
             renderAllProgress();
         });
 
