@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Throne - Partner Moves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        /* Series View Specific Styles */
+        .series-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 3rem;
+        }
+
+        .series-sidebar {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--paper);
+            border: 2px solid #fff;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--ink);
+            box-shadow: 2px 2px 0 var(--ink);
+            transition: all 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--ink);
+        }
+
+        .series-card-sidebar {
+            background: var(--paper);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+
+        .series-banner {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .series-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .series-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.95);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--ink);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .series-info {
+            padding: 1.5rem;
+        }
+
+        .series-date {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .series-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1.8rem;
+            color: var(--red);
+            text-shadow: 1.5px 1.5px 0 var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .series-tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .series-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.25rem;
+        }
+
+        .progress-section {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 1.25rem;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .progress-bar-container {
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--blue);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .series-main {
+            min-height: 100vh;
+        }
+
+        .day-tabs {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .day-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--paper);
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Poppins', sans-serif;
+            color: var(--ink);
+        }
+
+        .day-tab:hover {
+            border-color: var(--blue);
+        }
+
+        .day-tab.active {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .day-content {
+            display: none;
+        }
+
+        .day-content.active {
+            display: block;
+        }
+
+        .day-header {
+            margin-bottom: 2rem;
+        }
+
+        .day-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 2rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .video-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .video-item:hover {
+            background: rgba(117, 168, 208, 0.05);
+        }
+
+        .video-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 3px solid #ddd;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .video-item.completed .video-checkbox {
+            background: var(--blue);
+            border-color: var(--blue);
+            position: relative;
+        }
+
+        .video-item.completed .video-checkbox::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .video-thumbnail {
+            width: 200px;
+            height: 120px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-details {
+            flex: 1;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .series-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+
+            .series-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .video-thumbnail {
+                width: 140px;
+                height: 85px;
+            }
+
+            .day-tabs {
+                gap: 0.5rem;
+            }
+
+            .day-tab {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .series-container {
+                padding: 1rem;
+            }
+
+            .video-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .video-thumbnail {
+                width: 100%;
+                height: 180px;
+            }
+
+            .video-checkbox {
+                position: absolute;
+                top: 1.5rem;
+                left: 1rem;
+            }
+
+            .day-title {
+                font-size: 1.75rem;
+            }
+
+            .day-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Partner Moves logo" class="logo-icon">
+            <span class="logo-text">Partner Moves</span>
+        </a>
+      
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="tutorials.html">Online Tutorials</a>
+          <a href="retreats.html">Retreats</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="series-container">
+        
+        <aside class="series-sidebar">
+            <a href="tutorials.html" class="back-button">
+                <span>←</span> Back to All Series
+            </a>
+
+            <div class="series-card-sidebar">
+                <div class="series-banner">
+                    <div class="series-badge">7 Days</div>
+                    <img src="images/chair.jpg" alt="Throne">
+                </div>
+                
+                <div class="series-info">
+                    <div class="series-date">January 2026</div>
+                    <h2 class="series-title">Throne</h2>
+                    
+                    <div class="series-tags">
+                        <span class="tag">⚡ Solar Acro</span>
+                        <span class="tag">💪 Strength</span>
+                        <span class="tag">⭐ Beginner</span>
+                    </div>
+
+                    <p class="series-description">
+                        Take a seat on your partner and learn to fly or base the throne pose. 
+                        Build strength, trust, and playful confidence in this classic acroyoga position.
+                    </p>
+
+                    <div class="progress-section">
+                        <div class="progress-label">Your Progress</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text">0 of 7 videos complete</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="series-main">
+            
+            <div class="day-tabs">
+                <button class="day-tab active" data-day="1">Day 1</button>
+                <button class="day-tab" data-day="2">Day 2</button>
+                <button class="day-tab" data-day="3">Day 3</button>
+                <button class="day-tab" data-day="4">Day 4</button>
+                <button class="day-tab" data-day="5">Day 5</button>
+                <button class="day-tab" data-day="6">Day 6</button>
+                <button class="day-tab" data-day="7">Day 7</button>
+            </div>
+
+            <div class="day-content active" data-day="1">
+                <div class="day-header">
+                    <h1 class="day-title">Day 1: Introduction to Throne</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 10 min</span>
+                        <span>⭐ Beginner</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/chair.jpg" alt="Introduction">
+                            <div class="video-duration">10:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Introduction to Throne</h3>
+                            <p class="video-description">
+                                Learn the fundamentals of throne pose including proper foot placement, 
+                                weight distribution, and communication. Understand both the base and flyer perspectives.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Foundations</span>
+                                <span>⚡ Balance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="2">
+                <div class="day-header">
+                    <h1 class="day-title">Day 2: Basing Throne</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 12 min</span>
+                        <span>⭐ Beginner</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/acroyoga.jpg" alt="Basing Throne">
+                            <div class="video-duration">12:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Basing Throne</h3>
+                            <p class="video-description">
+                                Master the base position with focus on strong feet, stable legs, 
+                                and proper alignment. Learn to support your partner with confidence.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Base Technique</span>
+                                <span>⚡ Stability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="3">
+                <div class="day-header">
+                    <h1 class="day-title">Day 3: Flying Throne</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 12 min</span>
+                        <span>⭐ Beginner</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/flying.jpg" alt="Flying Throne">
+                            <div class="video-duration">12:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Flying Throne</h3>
+                            <p class="video-description">
+                                Experience throne from the flyer's perspective. Learn proper body positioning, 
+                                how to sit with control, and maintain balance in the air.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Flyer Skills</span>
+                                <span>⚡ Balance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="4">
+                <div class="day-header">
+                    <h1 class="day-title">Day 4: Entry & Exit Transitions</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 15 min</span>
+                        <span>⭐ Beginner</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/partner-stretches.jpg" alt="Transitions">
+                            <div class="video-duration">15:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Entry & Exit Transitions</h3>
+                            <p class="video-description">
+                                Master smooth, safe transitions into and out of throne. Practice multiple 
+                                entry methods and learn graceful dismounts.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Transitions</span>
+                                <span>⚡ Flow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="5">
+                <div class="day-header">
+                    <h1 class="day-title">Day 5: Throne Variations</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 15 min</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/push.jpg" alt="Variations">
+                            <div class="video-duration">15:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Throne Variations</h3>
+                            <p class="video-description">
+                                Explore creative variations including arm positions, leg movements, 
+                                and playful adaptations to make throne your own.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Creative</span>
+                                <span>⚡ Variations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="6">
+                <div class="day-header">
+                    <h1 class="day-title">Day 6: Throne to Other Poses</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 15 min</span>
+                        <span>⭐ Intermediate</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/flying-therapeutics.JPG" alt="Transitions">
+                            <div class="video-duration">15:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Throne to Other Poses</h3>
+                            <p class="video-description">
+                                Learn to transition from throne into other acroyoga poses like bird, 
+                                whale, and more. Build flow and creativity in your practice.
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Flow</span>
+                                <span>⚡ Sequencing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-content" data-day="7">
+                <div class="day-header">
+                    <h1 class="day-title">Day 7: Throne Flow & Mastery</h1>
+                    <div class="day-meta">
+                        <span>⏱️ 15 min</span>
+                        <span>⭐ Beginner</span>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="video-item">
+                        <div class="video-checkbox"></div>
+                        <div class="video-thumbnail">
+                            <img src="images/plank.jpg" alt="Complete Flow">
+                            <div class="video-duration">15:00</div>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Throne Flow & Mastery</h3>
+                            <p class="video-description">
+                                Combine everything you've learned into a beautiful throne flow sequence. 
+                                Celebrate your progress and the trust you've built with your partner!
+                            </p>
+                            <div class="video-meta">
+                                <span>💪 Complete Practice</span>
+                                <span>⚡ Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Partner Moves – Movement for Everyone</p>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tutorials.html">Online Tutorials</a>
+                <a href="retreats.html">Retreats</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        const SERIES_ID = 'throne';
+        
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+      
+        toggleBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+
+        function getSeriesProgress() {
+            const stored = localStorage.getItem('partnerMovesProgress');
+            const allProgress = stored ? JSON.parse(stored) : {};
+            return allProgress[SERIES_ID] || { currentDay: 1, completedDays: [] };
+        }
+
+        function saveSeriesProgress(completedDays) {
+            const stored = localStorage.getItem('partnerMovesProgress');
+            const allProgress = stored ? JSON.parse(stored) : {};
+            
+            allProgress[SERIES_ID] = {
+                currentDay: completedDays.length > 0 ? Math.max(...completedDays) + 1 : 1,
+                completedDays: completedDays,
+                lastAccessed: new Date().toISOString()
+            };
+            
+            localStorage.setItem('partnerMovesProgress', JSON.stringify(allProgress));
+        }
+
+        function initializeProgress() {
+            const progress = getSeriesProgress();
+            const dayContents = document.querySelectorAll('.day-content');
+            
+            dayContents.forEach((content, index) => {
+                const dayNumber = index + 1;
+                const videoItem = content.querySelector('.video-item');
+                
+                if (progress.completedDays.includes(dayNumber)) {
+                    videoItem.classList.add('completed');
+                }
+            });
+            
+            updateProgress();
+        }
+
+        const dayTabs = document.querySelectorAll('.day-tab');
+        const dayContents = document.querySelectorAll('.day-content');
+
+        dayTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const day = tab.getAttribute('data-day');
+                
+                dayTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                dayContents.forEach(content => {
+                    if (content.getAttribute('data-day') === day) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        const videoItems = document.querySelectorAll('.video-item');
+        
+        videoItems.forEach((item, index) => {
+            const checkbox = item.querySelector('.video-checkbox');
+            const dayNumber = index + 1;
+            
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+                item.classList.toggle('completed');
+                
+                const progress = getSeriesProgress();
+                const completedDays = [...progress.completedDays];
+                
+                if (item.classList.contains('completed')) {
+                    if (!completedDays.includes(dayNumber)) {
+                        completedDays.push(dayNumber);
+                    }
+                } else {
+                    const dayIndex = completedDays.indexOf(dayNumber);
+                    if (dayIndex > -1) {
+                        completedDays.splice(dayIndex, 1);
+                    }
+                }
+                
+                saveSeriesProgress(completedDays);
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const completed = document.querySelectorAll('.video-item.completed').length;
+            const total = document.querySelectorAll('.video-item').length;
+            const percentage = (completed / total) * 100;
+            
+            document.querySelector('.progress-bar-fill').style.width = percentage + '%';
+            
+            const progressText = completed === total 
+                ? 'All videos complete! 🎉' 
+                : `${completed} of ${total} videos complete`;
+            
+            document.querySelector('.progress-text').textContent = progressText;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProgress();
+        });
+    </script>
+</body>
+</html>
