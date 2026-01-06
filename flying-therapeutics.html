@@ -670,7 +670,7 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; 2025 Partner Moves – Movement for Everyone</p>
+            <p>&copy; <span id="year"></span> Partner Moves — Movement for Everyone</p>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -681,6 +681,10 @@
             <p class="footer-note">Made with joy in Koh Phangan 🌴</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <script>
         const SERIES_ID = 'flying-therapeutics';
